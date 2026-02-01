@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa8d25ee-5028-457e-8691-602b0ee122c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Read-me.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Read-me.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SwaggerAccessLoggingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SwaggerAccessLoggingFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Read_me_v2.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_me_v1.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_me_v3.md" beforeDir="false" />
-    </list>
+    <list default="true" id="fa8d25ee-5028-457e-8691-602b0ee122c9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,7 +125,7 @@
       <workItem from="1769700233412" duration="629000" />
       <workItem from="1769862354010" duration="6585000" />
       <workItem from="1769872440923" duration="1187000" />
-      <workItem from="1769873642465" duration="14790000" />
+      <workItem from="1769873642465" duration="15107000" />
     </task>
     <servers />
   </component>
