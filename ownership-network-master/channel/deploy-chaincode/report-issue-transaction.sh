@@ -5,8 +5,8 @@ export FABRIC_CFG_PATH="${PWD}/../config"
 chaincode_name="basic"
 channel_name="channel-org"
 org_msp="Org1MSP"
-peer_address="localhost:7051"
-orderer_address="localhost:7050"
+peer_address="peer0.org1.ownify.com:7051"
+orderer_address="orderer.ownify.com:7050"
 tls_cert_path="${PWD}/../crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/ca.crt"
 msp_path="${PWD}/../crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp"
 orderer_tls_cert="${PWD}/../crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/tlscacerts/tlsca.ownify.com-cert.pem"
@@ -97,7 +97,7 @@ getReportIssueHistory() {
 
 # Function to get all report issue history
 getAllReportIssueHistory() {
-    response=$(peer chaincode invoke -o localhost:7050 \
+    response=$(peer chaincode invoke -o orderer.ownify.com:7050 \
     --tls --cafile ${orderer_tls_cert} \
     --channelID ${channel_name} \
     --name ${chaincode_name} \
