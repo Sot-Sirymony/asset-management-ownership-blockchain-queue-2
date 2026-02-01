@@ -5,25 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa8d25ee-5028-457e-8691-602b0ee122c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/setup_v1.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Read-me.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Read-me.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SwaggerAccessLoggingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SwaggerAccessLoggingFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel/5.create-app-channel.sh" beforeDir="false" afterPath="$PROJECT_DIR$/channel/5.create-app-channel.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel/6.join-peers-to-channel.sh" beforeDir="false" afterPath="$PROJECT_DIR$/channel/6.join-peers-to-channel.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel/7.update-anchor-peers.sh" beforeDir="false" afterPath="$PROJECT_DIR$/channel/7.update-anchor-peers.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel/deploy-chaincode/asset-transaction.sh" beforeDir="false" afterPath="$PROJECT_DIR$/channel/deploy-chaincode/asset-transaction.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel/deploy-chaincode/deploy-chaincode.sh" beforeDir="false" afterPath="$PROJECT_DIR$/channel/deploy-chaincode/deploy-chaincode.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel/deploy-chaincode/report-issue-transaction.sh" beforeDir="false" afterPath="$PROJECT_DIR$/channel/deploy-chaincode/report-issue-transaction.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel/deploy-chaincode/shell.sh" beforeDir="false" afterPath="$PROJECT_DIR$/channel/deploy-chaincode/shell.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/orderer.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/orderer/start-orderers-v2.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/orderer/start-orderers.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/org1.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Read_me_v2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/read_me_v1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/read_me_v3.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +135,7 @@
       <workItem from="1769700233412" duration="629000" />
       <workItem from="1769862354010" duration="6585000" />
       <workItem from="1769872440923" duration="1187000" />
-      <workItem from="1769873642465" duration="13972000" />
+      <workItem from="1769873642465" duration="14790000" />
     </task>
     <servers />
   </component>
