@@ -9,7 +9,7 @@ enroll_admin() {
     mkdir -p ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/
     export FABRIC_CA_CLIENT_HOME=${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/
 
-    fabric-ca-client enroll -u https://admin:adminpw@localhost:7054 \
+    fabric-ca-client enroll -u https://admin:adminpw@ca.org1.ownify.com:7054 \
                             --caname ca.org1.ownify.com \
                             --tls.certfiles ${PWD}/../fabric-ca/org1/tls-cert.pem
 }
@@ -74,7 +74,7 @@ generate_peers_msp() {
         
         mkdir -p ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/peers/${peer}.org1.ownify.com
 
-        fabric-ca-client enroll -u https://$peer:${peer}pw@localhost:7054 \
+        fabric-ca-client enroll -u https://$peer:${peer}pw@ca.org1.ownify.com:7054 \
             --caname ca.org1.ownify.com \
             -M ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/peers/${peer}.org1.ownify.com/msp \
             --csr.hosts ${peer}.org1.ownify.com \
@@ -91,7 +91,7 @@ generate_peers_tls_certificates() {
         echo "Generate the ${peer}-tls certificates"
         echo "==================================="
         
-        fabric-ca-client enroll -u https://$peer:${peer}pw@localhost:7054 \
+        fabric-ca-client enroll -u https://$peer:${peer}pw@ca.org1.ownify.com:7054 \
             --caname ca.org1.ownify.com \
             -M ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/peers/${peer}.org1.ownify.com/tls \
             --enrollment.profile tls \
@@ -159,7 +159,7 @@ generate_user_msp() {
     
     mkdir -p ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com
 
-    fabric-ca-client enroll -u https://user1:user1pw@localhost:7054 \
+    fabric-ca-client enroll -u https://user1:user1pw@ca.org1.ownify.com:7054 \
         --caname ca.org1.ownify.com \
         -M ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp \
         --tls.certfiles ${PWD}/../fabric-ca/org1/tls-cert.pem
@@ -174,7 +174,7 @@ generate_org_admin_msp() {
     
     mkdir -p ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com
 
-    fabric-ca-client enroll -u https://org1admin:org1adminpw@localhost:7054 \
+    fabric-ca-client enroll -u https://org1admin:org1adminpw@ca.org1.ownify.com:7054 \
         --caname ca.org1.ownify.com \
         -M ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp \
         --tls.certfiles ${PWD}/../fabric-ca/org1/tls-cert.pem
@@ -189,7 +189,7 @@ generate_org_admin_tls() {
     echo "Generate the org admin tls"
     echo "=========================="
     
-    fabric-ca-client enroll -u https://org1admin:org1adminpw@localhost:7054 \
+    fabric-ca-client enroll -u https://org1admin:org1adminpw@ca.org1.ownify.com:7054 \
         --caname ca.org1.ownify.com \
         -M ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls \
         --enrollment.profile tls \

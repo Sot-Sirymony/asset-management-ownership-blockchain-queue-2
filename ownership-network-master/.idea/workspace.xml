@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fa8d25ee-5028-457e-8691-602b0ee122c9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SwaggerAccessLoggingFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Read_me_v2.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/read_me_v1.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/read_me_v3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Read-me.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Read-me.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ownership-network-master.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/orderer/1.enroll-admin.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/orderer/1.enroll-admin.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/orderer/5.generate-orderer-msp.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/orderer/5.generate-orderer-msp.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/orderer/6.gen-orderers-tls-certificates.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/orderer/6.gen-orderers-tls-certificates.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/orderer/start-orderers.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/orderer/start-orderers.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/org1/1.enroll-admin.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/org1/1.enroll-admin.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/org1/12.gen-users-msp.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/org1/12.gen-users-msp.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/org1/13.gen-org-admin-msp.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/org1/13.gen-org-admin-msp.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/org1/14.gen-org-admin-tls-certificate.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/org1/14.gen-org-admin-tls-certificate.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/org1/6.gen-peers-msp.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/org1/6.gen-peers-msp.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/org1/7.gen-peers-tls-certificates.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/org1/7.gen-peers-tls-certificates.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/org1/start-orgs.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/org1/start-orgs.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="38wAOynSnS4tzhDMSOZbRUV0vOb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Docker.create-certificate-with-ca/docker-compose.yaml: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yaml: Compose Deployment.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/sotsirymony/Desktop/Block Chain Assignment/All In One Source/ownership-network-master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Docker.create-certificate-with-ca/docker-compose.yaml: Compose Deployment">
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-image" temporary="true">
+      <deployment type="docker-image">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="create-certificate-with-ca/docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="create-certificate-with-ca/docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="envFilePath" value="" />
+          <option name="sourceFilePath" value="docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.create-certificate-with-ca/docker-compose.yaml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa8d25ee-5028-457e-8691-602b0ee122c9" name="Changes" comment="" />
+      <created>1769700232250</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1769700232250</updated>
+      <workItem from="1769700233412" duration="629000" />
+      <workItem from="1769862354010" duration="6585000" />
+      <workItem from="1769872440923" duration="1187000" />
+      <workItem from="1769873642465" duration="5295000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -5,7 +5,7 @@ echo
 
 mkdir -p ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com
 
-fabric-ca-client enroll -u https://org1admin:org1adminpw@localhost:7054 \
+fabric-ca-client enroll -u https://org1admin:org1adminpw@ca.org1.ownify.com:7054 \
     --caname ca.org1.ownify.com \
     -M ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp \
     --tls.certfiles ${PWD}/../fabric-ca/org1/tls-cert.pem

@@ -3,7 +3,7 @@ echo "Generate the org admin tls"
 echo "=========================="
 echo
 
-fabric-ca-client enroll -u https://org1admin:org1adminpw@localhost:7054 \
+fabric-ca-client enroll -u https://org1admin:org1adminpw@ca.org1.ownify.com:7054 \
     --caname ca.org1.ownify.com \
     -M ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls \
     --enrollment.profile tls \

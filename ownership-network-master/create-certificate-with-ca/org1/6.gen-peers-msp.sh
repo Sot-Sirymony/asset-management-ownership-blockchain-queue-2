@@ -5,7 +5,7 @@ echo
 
 mkdir -p ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com
 
-fabric-ca-client enroll -u https://peer0:peer0pw@localhost:7054 \
+fabric-ca-client enroll -u https://peer0:peer0pw@ca.org1.ownify.com:7054 \
     --caname ca.org1.ownify.com \
     -M ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp \
     --csr.hosts peer0.org1.ownify.com \
@@ -23,7 +23,7 @@ echo
 
 mkdir -p ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com
 
-fabric-ca-client enroll -u https://peer1:peer1pw@localhost:7054 \
+fabric-ca-client enroll -u https://peer1:peer1pw@ca.org1.ownify.com:7054 \
     --caname ca.org1.ownify.com \
     -M ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp \
     --csr.hosts peer1.org1.ownify.com \

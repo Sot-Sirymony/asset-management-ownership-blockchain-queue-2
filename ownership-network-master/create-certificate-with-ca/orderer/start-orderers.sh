@@ -9,7 +9,7 @@ enroll_admin() {
     mkdir -p ${PWD}/../../channel/crypto-config/ordererOrganizations/ownify.com
     export FABRIC_CA_CLIENT_HOME=${PWD}/../../channel/crypto-config/ordererOrganizations/ownify.com
 
-    fabric-ca-client enroll -u https://admin:adminpw@localhost:9054 \
+    fabric-ca-client enroll -u https://admin:adminpw@ca_orderer:9054 \
                             --caname ca-orderer \
                             --tls.certfiles ${PWD}/../fabric-ca/ordererOrg/tls-cert.pem
 }
@@ -57,7 +57,7 @@ generate_orderer_msp() {
         echo "========================"
         
         mkdir -p ${PWD}/../../channel/crypto-config/ordererOrganizations/ownify.com/orderers/${orderer}.ownify.com
-        fabric-ca-client enroll -u https://$orderer:ordererpw@localhost:9054 \
+        fabric-ca-client enroll -u https://$orderer:ordererpw@ca_orderer:9054 \
             --caname ca-orderer \
             -M ${PWD}/../../channel/crypto-config/ordererOrganizations/ownify.com/orderers/${orderer}.ownify.com/msp \
             --csr.hosts ${orderer}.ownify.com \
@@ -74,7 +74,7 @@ generate_orderer_tls_certificates() {
         echo "Generate the ${orderer}-tls certificates"
         echo "====================================="
         
-        fabric-ca-client enroll -u https://$orderer:ordererpw@localhost:9054 \
+        fabric-ca-client enroll -u https://$orderer:ordererpw@ca_orderer:9054 \
             --caname ca-orderer \
             -M ${PWD}/../../channel/crypto-config/ordererOrganizations/ownify.com/orderers/${orderer}.ownify.com/tls \
             --enrollment.profile tls \

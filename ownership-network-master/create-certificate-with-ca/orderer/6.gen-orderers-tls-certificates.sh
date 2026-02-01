@@ -3,7 +3,7 @@ echo "Generate the orderer-tls certificates"
 echo "====================================="
 echo
 
-fabric-ca-client enroll -u https://orderer:ordererpw@localhost:9054 \
+fabric-ca-client enroll -u https://orderer:ordererpw@ca_orderer:9054 \
     --caname ca-orderer \
     -M ${PWD}/../../channel/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls \
     --enrollment.profile tls \
@@ -18,7 +18,7 @@ echo "Generate the orderer2-tls certificates"
 echo "======================================"
 echo
    
-fabric-ca-client enroll -u https://orderer2:ordererpw@localhost:9054 \
+fabric-ca-client enroll -u https://orderer2:ordererpw@ca_orderer:9054 \
     --caname ca-orderer \
     -M ${PWD}/../../channel/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls \
     --enrollment.profile tls \
@@ -33,7 +33,7 @@ echo "Generate the orderer3-tls certificates"
 echo "======================================"
 echo
    
-fabric-ca-client enroll -u https://orderer3:ordererpw@localhost:9054 \
+fabric-ca-client enroll -u https://orderer3:ordererpw@ca_orderer:9054 \
     --caname ca-orderer \
     -M ${PWD}/../../channel/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls \
     --enrollment.profile tls \
