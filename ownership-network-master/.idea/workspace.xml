@@ -5,29 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa8d25ee-5028-457e-8691-602b0ee122c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SwaggerAccessLoggingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Read_me_v2.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/read_me_v1.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/read_me_v3.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/create-certificate-with-ca/orderer/start-orderers-v2.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/create-certificate-with-ca/orderer/start-orderers-v3.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/read_me_v4_dalen.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/read_me_v5_Orderer_Run.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/read_me_v5_Orgs_Run.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Read-me.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Read-me.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SwaggerAccessLoggingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SwaggerAccessLoggingFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ownership-network-master.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/orderer/1.enroll-admin.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/orderer/1.enroll-admin.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/orderer/5.generate-orderer-msp.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/orderer/5.generate-orderer-msp.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/orderer/6.gen-orderers-tls-certificates.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/orderer/6.gen-orderers-tls-certificates.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/docker-compose.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/orderer/start-orderers.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/orderer/start-orderers.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/org1/1.enroll-admin.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/org1/1.enroll-admin.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/org1/12.gen-users-msp.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/org1/12.gen-users-msp.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/org1/13.gen-org-admin-msp.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/org1/13.gen-org-admin-msp.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/org1/14.gen-org-admin-tls-certificate.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/org1/14.gen-org-admin-tls-certificate.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/org1/6.gen-peers-msp.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/org1/6.gen-peers-msp.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/org1/7.gen-peers-tls-certificates.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/org1/7.gen-peers-tls-certificates.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/org1/start-orgs.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/org1/start-orgs.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +45,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Docker.create-certificate-with-ca/docker-compose.yaml: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yaml.orderer.ownify.com: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yaml.orderer2.ownify.com: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yaml: Compose Deployment.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -72,7 +64,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Docker.create-certificate-with-ca/docker-compose.yaml: Compose Deployment">
+  <component name="RunManager" selected="Docker.docker-compose.yaml.orderer.ownify.com: Compose Deployment">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -102,8 +94,36 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yaml.orderer2.ownify.com: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="orderer2.ownify.com" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yaml.orderer.ownify.com: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="orderer.ownify.com" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yaml.orderer.ownify.com: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yaml.orderer2.ownify.com: Compose Deployment" />
         <item itemvalue="Docker.create-certificate-with-ca/docker-compose.yaml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
       </list>
@@ -120,7 +140,7 @@
       <workItem from="1769700233412" duration="629000" />
       <workItem from="1769862354010" duration="6585000" />
       <workItem from="1769872440923" duration="1187000" />
-      <workItem from="1769873642465" duration="5295000" />
+      <workItem from="1769873642465" duration="12516000" />
     </task>
     <servers />
   </component>

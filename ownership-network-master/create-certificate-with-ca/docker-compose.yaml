@@ -35,9 +35,9 @@ services:
       - ./fabric-ca/org1:/etc/hyperledger/fabric-ca-server
     networks:
       - test
-
   ca_orderer:
     container_name: ca_orderer
+    hostname: ca_orderer          # ✅ add this (recommended)
     image: hyperledger/fabric-ca:1.5
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
@@ -46,8 +46,24 @@ services:
       - FABRIC_CA_SERVER_PORT=9054
     ports:
       - "9054:9054"
-    command: sh -c 'sleep 10 && fabric-ca-server start -b admin:adminpw -d'
+    command: sh -c 'sleep 10 && fabric-ca-server start -b admin:adminpw -d --csr.hosts ca_orderer --csr.hosts localhost'   # ✅ add csr.hosts
     volumes:
       - ./fabric-ca/ordererOrg:/etc/hyperledger/fabric-ca-server
     networks:
       - test
+
+#  ca_orderer:
+#    container_name: ca_orderer
+#    image: hyperledger/fabric-ca:1.5
+#    environment:
+#      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+#      - FABRIC_CA_SERVER_CA_NAME=ca-orderer
+#      - FABRIC_CA_SERVER_TLS_ENABLED=true
+#      - FABRIC_CA_SERVER_PORT=9054
+#    ports:
+#      - "9054:9054"
+#    command: sh -c 'sleep 10 && fabric-ca-server start -b admin:adminpw -d'
+#    volumes:
+#      - ./fabric-ca/ordererOrg:/etc/hyperledger/fabric-ca-server
+#    networks:
+#      - test
