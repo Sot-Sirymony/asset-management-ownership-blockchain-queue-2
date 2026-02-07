@@ -1,0 +1,53 @@
+name: first-network
+version: 1.0.0
+
+client:
+  organization: Org1
+  connection:
+    timeout:
+      peer:
+        endorser: 300
+
+organizations:
+  Org1:
+    mspid: Org1MSP
+    peers:
+      - peer0.org1.ownify.com
+      - peer1.org1.ownify.com
+    certificateAuthorities:
+      - ca.org1.ownify.com
+
+peers:
+  peer0.org1.ownify.com:
+    url: grpcs://localhost:7051
+    tlsCACerts:
+      path: /Users/sotsirymony/Desktop/Block Chain Assignment/All In One Source/update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/ca.crt
+    grpcOptions:
+      ssl-target-name-override: peer0.org1.ownify.com
+      hostnameOverride: peer0.org1.ownify.com
+
+  peer1.org1.ownify.com:
+    url: grpcs://localhost:8051
+    tlsCACerts:
+      path: /Users/sotsirymony/Desktop/Block Chain Assignment/All In One Source/update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/ca.crt
+    grpcOptions:
+      ssl-target-name-override: peer1.org1.ownify.com
+      hostnameOverride: peer1.org1.ownify.com
+
+orderers:
+  orderer.ownify.com:
+    url: grpcs://localhost:7050
+    tlsCACerts:
+      path: /Users/sotsirymony/Desktop/Block Chain Assignment/All In One Source/update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/ca.crt
+    grpcOptions:
+      ssl-target-name-override: orderer.ownify.com
+      hostnameOverride: orderer.ownify.com
+
+certificateAuthorities:
+  ca.org1.ownify.com:
+    url: https://localhost:7054
+    caName: ca.org1.ownify.com
+    tlsCACerts:
+      path: /Users/sotsirymony/Desktop/Block Chain Assignment/All In One Source/update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/ca/ca.org1.ownify.com-cert.pem
+    httpOptions:
+      verify: false
