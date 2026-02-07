@@ -40,7 +40,7 @@
 #############################################################################
 
 # URL of the Fabric-ca-server (default: http://localhost:7054)
-url: https://localhost:9054
+url: https://ca_orderer:9054
 
 # Membership Service Provider (MSP) directory
 # This is useful when the client is used to enroll a peer or orderer, so
@@ -117,7 +117,7 @@ csr:
       O: Hyperledger
       OU: Fabric
   hosts:
-    - DESKTOP-ELJQHPV
+    - 30f7833f1469
 
 #############################################################################
 #  Registration section used to register a new identity with fabric-ca server
