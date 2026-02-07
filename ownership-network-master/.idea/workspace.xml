@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa8d25ee-5028-457e-8691-602b0ee122c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/channel/login-readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ownership-ui-master/src/app/api/auth/[...nextauth]/authOptions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-ui-master/src/app/api/auth/[...nextauth]/authOptions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +138,7 @@
       <workItem from="1769700233412" duration="629000" />
       <workItem from="1769862354010" duration="6585000" />
       <workItem from="1769872440923" duration="1187000" />
-      <workItem from="1769873642465" duration="23012000" />
+      <workItem from="1769873642465" duration="24788000" />
     </task>
     <servers />
   </component>
