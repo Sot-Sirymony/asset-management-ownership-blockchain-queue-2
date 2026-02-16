@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1")
 @SecurityRequirement(name = "bearerAuth")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @AllArgsConstructor
 public class DepartmentController {
 
@@ -28,12 +28,12 @@ public class DepartmentController {
     @GetMapping("/admin/department")
     @Operation(summary = "Admin view list of department")
     public ResponseEntity<ApiResponse<List<Department>>> getAllDepartment(
-//            @RequestParam(defaultValue = "10") @Positive Integer size ,
+            @RequestParam(defaultValue = "10") @Positive Integer size,
             @RequestParam(defaultValue = "1") @Positive Integer page
     ) {
         ApiResponse<List<Department>> apiResponse = ApiResponse.<List<Department>>builder()
                 .message("Get all department successfully")
-                .payload(departmentService.getAllDepartment(page))
+                .payload(departmentService.getAllDepartment(page, size))
                 .httpStatus(HttpStatus.OK)
                 .timestamp(new Timestamp(System.currentTimeMillis()))
                 .build();

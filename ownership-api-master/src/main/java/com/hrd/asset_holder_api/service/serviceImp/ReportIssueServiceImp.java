@@ -13,6 +13,7 @@ import com.hrd.asset_holder_api.repository.UserRepository;
 import com.hrd.asset_holder_api.service.ReportIssueService;
 import com.hrd.asset_holder_api.utils.GetCurrentUser;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.hyperledger.fabric.gateway.Contract;
 import org.hyperledger.fabric.gateway.ContractException;
 import org.hyperledger.fabric.gateway.Gateway;
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 
+@Slf4j
 @Service
 @AllArgsConstructor
 public class ReportIssueServiceImp implements ReportIssueService {
@@ -56,9 +58,8 @@ public class ReportIssueServiceImp implements ReportIssueService {
             }
 
             if (!assetFound) {
-                System.err.println("No matching asset name found.");
+                log.warn("No matching asset name found for report issue: {}", reportIssue.getAssetName());
                 throw new NotFoundException("No matching asset name found.");
-//                return false;
             }
 
 
@@ -71,17 +72,15 @@ public class ReportIssueServiceImp implements ReportIssueService {
                     userId.toString(),
                     user.getUsername()
             );
+            log.info("Successfully created report issue: {}", reportIssue.getReportId());
             return true;
         } catch (ContractException e) {
-            System.err.println("Failed to evaluate transaction: " + e.getMessage());
-//            throw new NotFoundException(e.getMessage());
-            return false;
+            log.error("Failed to create report issue: {}", e.getMessage());
+            throw new NotFoundException("Failed to create report issue: " + e.getMessage());
+        } catch (Exception e) {
+            log.error("Unexpected error creating report issue", e);
+            throw new NotFoundException("Failed to create report issue: " + e.getMessage());
         }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
     }
 
     @Override
@@ -94,16 +93,15 @@ public class ReportIssueServiceImp implements ReportIssueService {
 
             contract.submitTransaction("QueryReportIssue", id);
             contract.submitTransaction("DeleteReportIssue", id);
-
+            log.info("Successfully deleted report issue: {}", id);
             return true;
         } catch (ContractException e) {
-            System.err.println("Failed to evaluate transaction: " + e.getMessage());
-            return false;
+            log.error("Failed to delete report issue: {} - {}", id, e.getMessage());
+            throw new NotFoundException("Failed to delete report issue: " + e.getMessage());
+        } catch (Exception e) {
+            log.error("Unexpected error deleting report issue: {}", id, e);
+            throw new NotFoundException("Failed to delete report issue: " + e.getMessage());
         }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
     @Override
@@ -122,16 +120,15 @@ public class ReportIssueServiceImp implements ReportIssueService {
                     user.getUsername()
             );
 
+            log.info("Successfully updated report issue: {}", id);
             return true;
-
         } catch (ContractException e) {
-            System.err.println("Failed to evaluate transaction: " + e.getMessage());
+            log.error("Failed to update report issue: {} - {}", id, e.getMessage());
+            throw new NotFoundException("Failed to update report issue: " + e.getMessage());
+        } catch (Exception e) {
+            log.error("Unexpected error updating report issue: {}", id, e);
+            throw new NotFoundException("Failed to update report issue: " + e.getMessage());
         }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
     }
 
     @Override
@@ -174,16 +171,15 @@ public class ReportIssueServiceImp implements ReportIssueService {
                 }
                 assetsWithUserInfo.add(assetWithUserInfo);
             }
+            log.debug("Retrieved all report issues for user: {}", currentUser.getUsername());
             return assetsWithUserInfo;
-
         } catch (ContractException e) {
-            System.err.println("Failed to evaluate transaction: " + e.getMessage());
+            log.error("Failed to retrieve all report issues: {}", e.getMessage());
+            throw new NotFoundException("Failed to retrieve report issue: " + e.getMessage());
+        } catch (Exception e) {
+            log.error("Unexpected error retrieving all report issues", e);
+            throw new NotFoundException("Failed to retrieve report issue: " + e.getMessage());
         }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
     }
 
     @Override
@@ -210,16 +206,13 @@ public class ReportIssueServiceImp implements ReportIssueService {
             for (JsonNode asset : assetNode) {
                 String username = asset.get("username").asText();
                 if (isAdmin || username.equals(currentUser.getUsername())) {
-                    System.out.println("username +"+username);
-                    System.out.println("currentUser "+currentUser.getUsername());
+                    log.debug("Processing report issue for user: {}, current user: {}", username, currentUser.getUsername());
                     ObjectNode assetWithUserInfo = MAPPER.createObjectNode();
                     assetWithUserInfo.put("reportId", asset.get("report_id").asText());
                     assetWithUserInfo.put("assetName", asset.has("asset_name") ? asset.get("asset_name").asText() : null);
                     assetWithUserInfo.put("attachment", asset.has("attachment") ? asset.get("attachment").asText() : null);
                     assetWithUserInfo.put("problem", asset.has("problem") ? asset.get("problem").asText() : null);
                     assetWithUserInfo.put("assignDate", asset.has("created_at") ? asset.get("created_at").asText() : null);
-
-                    System.out.println("username +" + username);
                     UserRequestResponse user = userRepository.findUserByName(username);
 
                     if (user != null) {
@@ -234,17 +227,14 @@ public class ReportIssueServiceImp implements ReportIssueService {
                 }
             }
 
+            log.debug("Retrieved all report issues for user: {}", currentUser.getUsername());
             return assetsWithUserInfo;
-
         } catch (ContractException e) {
-            System.err.println("Failed to evaluate transaction: " + e.getMessage());
+            log.error("Failed to retrieve all report issues: {}", e.getMessage());
+            throw new NotFoundException("Failed to retrieve report issue: " + e.getMessage());
+        } catch (Exception e) {
+            log.error("Unexpected error retrieving all report issues", e);
+            throw new NotFoundException("Failed to retrieve report issue: " + e.getMessage());
         }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
     }
-
-
 }

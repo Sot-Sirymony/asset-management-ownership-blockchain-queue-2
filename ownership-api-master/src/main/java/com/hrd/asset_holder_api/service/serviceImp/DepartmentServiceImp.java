@@ -13,15 +13,21 @@ import com.hrd.asset_holder_api.repository.UserRepository;
 import com.hrd.asset_holder_api.service.DepartmentService;
 import com.hrd.asset_holder_api.utils.GetCurrentUser;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.hyperledger.fabric.gateway.Contract;
 import org.hyperledger.fabric.gateway.Gateway;
 import org.hyperledger.fabric.gateway.Network;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Service implementation for department management operations.
+ */
+@Slf4j
 @Service
 @AllArgsConstructor
 public class DepartmentServiceImp implements DepartmentService {
@@ -34,9 +40,19 @@ public class DepartmentServiceImp implements DepartmentService {
     private final DepartmentRepository departmentRepository;
     private final UserRepository userRepository;
 
+    /**
+     * Retrieves all departments with pagination.
+     * Results are cached for 10 minutes.
+     *
+     * @param page Page number (1-based)
+     * @param size Page size
+     * @return List of departments
+     */
     @Override
-    public List<Department> getAllDepartment(Integer page) {
-        return departmentRepository.findAllDepartment(page);
+    @Cacheable(value = "departments", key = "'page_' + #page + '_size_' + #size")
+    public List<Department> getAllDepartment(Integer page, Integer size) {
+        log.debug("Fetching departments - page: {}, size: {}", page, size);
+        return departmentRepository.findAllDepartment(page, size);
     }
 
     @Override
@@ -85,7 +101,7 @@ public class DepartmentServiceImp implements DepartmentService {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Failed to retrieve report issues count for dashboard", e);
         }
 
         return new Dashboard(totalUser, totalAssetRequest, reportIssueCount, totalDepartment);

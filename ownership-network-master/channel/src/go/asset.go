@@ -173,10 +173,25 @@ func (s *SmartContract) QueryAllAssets(ctx contractapi.TransactionContextInterfa
 }
 
 // TransferAsset transfers an asset to a new user by updating the AssignTo field
+// Validates that the asset exists and the newAssignTo is not empty
 func (s *SmartContract) TransferAsset(ctx contractapi.TransactionContextInterface, assetID, newAssignTo string) (*Asset, error) {
+	// Validate input parameters
+	if assetID == "" {
+		return nil, fmt.Errorf("asset ID cannot be empty")
+	}
+	if newAssignTo == "" {
+		return nil, fmt.Errorf("new assignee cannot be empty")
+	}
+
+	// Query the asset to ensure it exists
 	asset, err := s.QueryAsset(ctx, assetID)
 	if err != nil {
 		return nil, fmt.Errorf("failed to query asset: %v", err)
+	}
+
+	// Prevent transferring to the same owner
+	if asset.AssignTo == newAssignTo {
+		return nil, fmt.Errorf("asset is already assigned to user %s", newAssignTo)
 	}
 
 	// Update only the AssignTo field

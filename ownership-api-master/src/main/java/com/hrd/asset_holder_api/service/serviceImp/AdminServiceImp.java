@@ -2,7 +2,6 @@ package com.hrd.asset_holder_api.service.serviceImp;
 
 import com.hrd.asset_holder_api.repository.UserRepository;
 import com.hrd.asset_holder_api.service.AdminService;
-import lombok.AllArgsConstructor;
 import org.hyperledger.fabric.gateway.Identities;
 import org.hyperledger.fabric.gateway.Identity;
 import org.hyperledger.fabric.gateway.Wallet;
@@ -14,10 +13,9 @@ import org.hyperledger.fabric_ca.sdk.HFCAClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import lombok.extern.slf4j.Slf4j;
 
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
@@ -25,8 +23,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+@Slf4j
 @Service
-
 public class AdminServiceImp implements AdminService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -84,7 +82,8 @@ public class AdminServiceImp implements AdminService {
             res.put("message", "Successfully enrolled " + enrollmentID + " and imported into the wallet");
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            log.error("Error during admin enrollment: {}", e.getMessage(), e);
+            throw new IllegalStateException("Error during admin enrollment", e);
         }
     }
 }

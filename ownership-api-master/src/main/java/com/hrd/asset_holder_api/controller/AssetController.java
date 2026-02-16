@@ -99,7 +99,7 @@ public class AssetController {
         return ResponseEntity.ok(res);
     }
 
-    @PutMapping("/admin/trasferAsset/{id}")
+    @PutMapping("/admin/transferAsset/{id}")
     @Operation(summary = "Admin transfer asset")
     public ResponseEntity<ApiResponse<Boolean>> transferAsset(@PathVariable String id,@RequestBody AssetTrasferRequest assetTrasferRequest) throws IOException {
         ApiResponse<Boolean> res = ApiResponse.<Boolean>builder()
@@ -109,13 +109,6 @@ public class AssetController {
                 .httpStatus(HttpStatus.OK)
                 .build();
         return ResponseEntity.ok(res);
-    }
-
-    // Backward-compatible, correctly spelled endpoint
-    @PutMapping("/admin/transferAsset/{id}")
-    @Operation(summary = "Admin transfer asset (alias)")
-    public ResponseEntity<ApiResponse<Boolean>> transferAssetAlias(@PathVariable String id, @RequestBody AssetTrasferRequest assetTrasferRequest) throws IOException {
-        return transferAsset(id, assetTrasferRequest);
     }
 
     @DeleteMapping("/user/deleteAsset/{id}")

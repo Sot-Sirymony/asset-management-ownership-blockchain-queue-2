@@ -80,7 +80,7 @@ class AssetControllerTest {
         AssetTrasferRequest req = AssetTrasferRequest.builder().newAssignTo(2).build();
 
         // User token should be forbidden for /api/v1/admin/**
-        mockMvc.perform(put("/api/v1/admin/trasferAsset/{id}", "asset1")
+        mockMvc.perform(put("/api/v1/admin/transferAsset/{id}", "asset1")
                         .header("Authorization", "Bearer " + SecurityTestSupport.GOOD_TOKEN)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(req)))
@@ -96,7 +96,7 @@ class AssetControllerTest {
 
         AssetTrasferRequest req = AssetTrasferRequest.builder().newAssignTo(2).build();
 
-        mockMvc.perform(put("/api/v1/admin/trasferAsset/{id}", "asset1")
+        mockMvc.perform(put("/api/v1/admin/transferAsset/{id}", "asset1")
                         .header("Authorization", "Bearer " + SecurityTestSupport.GOOD_TOKEN)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(req)))

@@ -3,12 +3,7 @@ package com.hrd.asset_holder_api.configuration;
 import com.hrd.asset_holder_api.jwt.JwtAuthEntrypoint;
 import com.hrd.asset_holder_api.jwt.JwtAuthFilter;
 import com.hrd.asset_holder_api.service.AppUserService;
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,10 +16,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.stereotype.Component;
-import org.springframework.web.filter.OncePerRequestFilter;
-
-import java.io.IOException;
 
 @Configuration
     @AllArgsConstructor
@@ -46,10 +37,16 @@ import java.io.IOException;
             return provider;
         }
 
+        /**
+         * Configures security filter chain with authentication, authorization, and security headers.
+         * CSRF is disabled as this is a stateless REST API using JWT tokens.
+         */
         @Bean
         public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
             httpSecurity
-                    .cors(Customizer.withDefaults()).csrf(AbstractHttpConfigurer::disable)
+                    .cors(Customizer.withDefaults())
+                    // CSRF disabled for stateless REST API using JWT tokens
+                    .csrf(AbstractHttpConfigurer::disable)
                     .authorizeHttpRequests(request -> request
                             .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui-html", "/api/v1/files/**", "/rest/auth/**").permitAll()
                             .requestMatchers("/api/v1/admin/**").hasAuthority("ADMIN")
@@ -60,6 +57,15 @@ import java.io.IOException;
                     )
                     .exceptionHandling(exception -> exception
                             .authenticationEntryPoint(jwtAuthEntrypoint)
+                    )
+                    .headers(headers -> headers
+                            .contentTypeOptions(contentTypeOptions -> contentTypeOptions.disable())
+                            .frameOptions(frameOptions -> frameOptions.deny())
+                            .xssProtection(xssProtection -> xssProtection.disable())
+                            .httpStrictTransportSecurity(hsts -> hsts
+                                    .maxAgeInSeconds(31536000)
+                                    .includeSubDomains(true)
+                            )
                     )
                     .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
             return httpSecurity.build();

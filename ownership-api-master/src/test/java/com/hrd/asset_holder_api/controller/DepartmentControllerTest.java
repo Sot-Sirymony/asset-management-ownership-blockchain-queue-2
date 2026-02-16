@@ -53,7 +53,7 @@ class DepartmentControllerTest {
 
     @Test
     void getAllDepartment_asAdmin_returnsOk() throws Exception {
-        when(departmentService.getAllDepartment(anyInt()))
+        when(departmentService.getAllDepartment(anyInt(), anyInt()))
                 .thenReturn(List.of(new Department(), new Department()));
 
         mockMvc.perform(get("/api/v1/admin/department")

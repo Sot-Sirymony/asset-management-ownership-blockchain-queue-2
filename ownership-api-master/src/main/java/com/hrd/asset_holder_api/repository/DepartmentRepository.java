@@ -14,8 +14,8 @@ import java.util.List;
 public interface DepartmentRepository {
 
     @Select("SELECT * FROM department " +
-            "LIMIT 10 OFFSET 10 * (#{page}-1)")
-    List<Department> findAllDepartment(Integer page);
+            "LIMIT #{size} OFFSET #{size} * (#{page}-1)")
+    List<Department> findAllDepartment(@Param("page") Integer page, @Param("size") Integer size);
 
 
     //-------------------Find department By id-----------------

@@ -9,10 +9,15 @@ import com.hrd.asset_holder_api.repository.UserRepository;
 import com.hrd.asset_holder_api.service.AssetRequestService;
 import com.hrd.asset_holder_api.utils.GetCurrentUser;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service implementation for asset request management operations.
+ */
+@Slf4j
 @Service
 @AllArgsConstructor
 public class AssetRequestServiceImp implements AssetRequestService {
@@ -22,25 +27,45 @@ public class AssetRequestServiceImp implements AssetRequestService {
 
     @Override
     public List<AssetRequest> getAllUserAssetRequest() {
+        log.debug("Fetching all user asset requests");
         return assetRequestRepository.findAllUserAssetRequest();
     }
 
+    /**
+     * Retrieves asset request by ID.
+     * Admins can view any request, users can only view their own requests.
+     *
+     * @param id The asset request ID
+     * @return List of asset requests
+     * @throws NotFoundException if request is not found
+     */
     @Override
     public List<AssetRequest> getUserAssetRequestById(Integer id) {
         Integer userId = GetCurrentUser.currentId();
-        System.out.println("=================");
+        log.debug("Fetching asset request: {} for user: {}", id, userId);
+        
         User user = userRepository.findUserId(userId);
-        System.out.println("User"+user);
+        if (user == null) {
+            log.error("User not found: {}", userId);
+            throw new NotFoundException("User not found");
+        }
+        
         if (user.getRoles().equals("ADMIN")){
-            System.out.println("xxxx"+assetRequestRepository.findUserAssetRequestById(id));
-            if (assetRequestRepository.findUserAssetRequestById(id).isEmpty()){
-                throw new NotFoundException("The asset request is null");
-            }else
-                return assetRequestRepository.findUserAssetRequestById(id);
+            List<AssetRequest> requests = assetRequestRepository.findUserAssetRequestById(id);
+            if (requests.isEmpty()){
+                log.warn("Asset request not found: {}", id);
+                throw new NotFoundException("The asset request is not found");
+            }
+            log.debug("Admin retrieved asset request: {}", id);
+            return requests;
         }else{
-            if (assetRequestRepository.findUserOwnAssetRequestById(id,userId).isEmpty())
-                throw new NotFoundException("The asset request is null");
-            return assetRequestRepository.findUserOwnAssetRequestById(id,userId);
+            List<AssetRequest> requests = assetRequestRepository.findUserOwnAssetRequestById(id, userId);
+            if (requests.isEmpty()) {
+                log.warn("Asset request not found for user: {} - request ID: {}", userId, id);
+                throw new NotFoundException("The asset request is not found");
+            }
+            log.debug("User {} retrieved own asset request: {}", userId, id);
+            return requests;
         }
     }
 

@@ -12,6 +12,7 @@ import com.hrd.asset_holder_api.repository.EnrollmentRepository;
 import com.hrd.asset_holder_api.service.EnrollmentService;
 import com.hrd.asset_holder_api.utils.GetCurrentUser;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.hyperledger.fabric.gateway.*;
 import org.hyperledger.fabric.sdk.Enrollment;
 import org.hyperledger.fabric.sdk.security.CryptoSuite;
@@ -33,6 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+@Slf4j
 @Service
 public class EnrollmentServiceImp implements EnrollmentService {
 
@@ -66,8 +68,7 @@ public class EnrollmentServiceImp implements EnrollmentService {
             // Check if user identity already exists in the wallet
             if (wallet.get(user.getUsername()) != null) {
                 String message = "An identity for the user \"" + user.getUsername() + "\" already exists in the wallet.";
-                System.out.println(message);
-//                return ResponseEntity.status(HttpStatus.CONFLICT).body(message);
+                log.warn(message);
             }
 
             // Check if admin identity exists in the wallet
@@ -97,7 +98,7 @@ public class EnrollmentServiceImp implements EnrollmentService {
 
         } catch (Exception e) {
             String errorMessage = "Error during enrollment: " + e.getMessage();
-            e.printStackTrace();
+            log.error("Enrollment failed for user: {}", user.getUsername(), e);
             throw new NotFoundException(errorMessage);
         }
     }
@@ -126,7 +127,7 @@ public class EnrollmentServiceImp implements EnrollmentService {
     @Override
     public boolean updateProfile(UserRequest userRequest) {
         Integer userId = GetCurrentUser.currentId();
-        System.out.println("profile image" + userRequest.getProfile_img());
+        log.debug("Updating profile for user: {}, profile image: {}", userId, userRequest.getProfile_img());
         return enrollmentRepository.updateProfile(userRequest, userId);
     }
 

@@ -11,7 +11,7 @@ import java.util.List;
 public interface DepartmentService {
 
 
-    List<Department> getAllDepartment(Integer page);
+    List<Department> getAllDepartment(Integer page, Integer size);
 
     Department getDepartmentById(Integer id);
 

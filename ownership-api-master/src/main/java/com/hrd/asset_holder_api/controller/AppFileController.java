@@ -26,7 +26,6 @@ public class AppFileController {
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @Operation(summary = "upload image")
     public ResponseEntity<?> postImage(@RequestParam MultipartFile file) throws IOException {
-        System.out.println("file" + file);
         String fileName = appFileService.saveFile(file);
         String fileUrl = "http://165.22.99.91:8081/api/v1/files?fileName=" + fileName;
         FileUpload fileResponse = new FileUpload(fileName,fileUrl,file.getContentType(),file.getSize());

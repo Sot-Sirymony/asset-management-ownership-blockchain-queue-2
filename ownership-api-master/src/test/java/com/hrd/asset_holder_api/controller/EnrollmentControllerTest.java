@@ -46,7 +46,13 @@ class EnrollmentControllerTest {
 
     @Test
     void registerUser_asAdmin_returnsOk() throws Exception {
-        UserRegister req = new UserRegister();
+        UserRegister req = UserRegister.builder()
+                .fullName("Test Admin")
+                .username("test_admin")
+                .password("Test1234")
+                .department(1)
+                .email("test_admin@example.com")
+                .build();
         when(enrollmentService.registerUser(any(UserRegister.class))).thenReturn(req);
 
         mockMvc.perform(post("/api/v1/admin/register_user")
