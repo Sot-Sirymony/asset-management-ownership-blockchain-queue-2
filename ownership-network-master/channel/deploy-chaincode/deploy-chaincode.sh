@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
 # Variables
 peer0=peer0.org1.ownify.com
 chaincode_path=../src/go

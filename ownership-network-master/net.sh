@@ -13,6 +13,59 @@ ensure_network() {
   fi
 }
 
+wait_for_ca_ready() {
+  local name="$1"
+  local ready_marker="$2"
+
+  echo "⏳ Waiting for ${name} to become ready..."
+  for _ in $(seq 1 60); do
+    local logs
+    logs="$(docker logs "$name" 2>&1 || true)"
+    if [[ "$logs" == *"$ready_marker"* ]]; then
+      echo "✅ ${name} is ready"
+      return 0
+    fi
+    sleep 1
+  done
+
+  echo "❌ ${name} did not become ready in time"
+  docker logs --tail=80 "$name" || true
+  return 1
+}
+
+wait_for_container_running() {
+  local name="$1"
+  echo "⏳ Waiting for container ${name} to be running..."
+  for _ in $(seq 1 60); do
+    local state
+    state="$(docker inspect -f '{{.State.Running}}' "$name" 2>/dev/null || true)"
+    if [[ "$state" == "true" ]]; then
+      echo "✅ ${name} is running"
+      return 0
+    fi
+    sleep 1
+  done
+  echo "❌ ${name} is not running"
+  docker ps -a --format "table {{.Names}}\t{{.Status}}" | sed -n '1,40p'
+  return 1
+}
+
+wait_for_couchdb_ready() {
+  local port="$1"
+  echo "⏳ Waiting for CouchDB on port ${port}..."
+  for _ in $(seq 1 60); do
+    local code
+    code="$(curl -s -u admin:password -o /dev/null -w '%{http_code}' "http://localhost:${port}/" || true)"
+    if [[ "$code" == "200" ]]; then
+      echo "✅ CouchDB:${port} is ready"
+      return 0
+    fi
+    sleep 1
+  done
+  echo "❌ CouchDB:${port} not ready in time"
+  return 1
+}
+
 status() {
   docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 }
@@ -45,11 +98,23 @@ gen_crypto() {
 
 up_fabric() {
   ensure_network
-  (cd "$ROOT_DIR/channel" && ./start-all.sh)
+  # Start non-CA Fabric services only; CAs are started in up_ca.
+  docker compose -f "$ROOT_DIR/docker-compose.yaml" up -d \
+    couchdb0 couchdb1 couchdb2 \
+    orderer.ownify.com orderer2.ownify.com orderer3.ownify.com
+
+  wait_for_couchdb_ready 5984
+  wait_for_couchdb_ready 5985
+  wait_for_couchdb_ready 5986
+
+  docker compose -f "$ROOT_DIR/docker-compose.yaml" up -d \
+    peer0.org1.ownify.com peer1.org1.ownify.com cli
 }
 
-channel_and_join() {
+generate_channel_artifacts() {
   ensure_network
+
+  # Generate channel artifacts with configtxgen before booting orderers.
   docker run --rm -t --network "$NET_NAME" \
     -v "$ROOT_DIR":/work -w /work/channel \
     hyperledger/fabric-tools:2.5 \
@@ -59,10 +124,43 @@ channel_and_join() {
       ./1.create-genesis-block.sh
       ./2.create-channelTx.sh
       ./3.create-anchor-peer.sh
-      ./5.create-app-channel.sh
-      ./6.join-peers-to-channel.sh
-      ./7.update-anchor-peers.sh
     '
+}
+
+channel_and_join() {
+  ensure_network
+
+  # Create channel, join peers, and update anchor peer using the cli container
+  docker exec cli bash -lc '
+    set -e
+    export FABRIC_CFG_PATH=/etc/hyperledger/fabric/config
+    export CORE_PEER_TLS_ENABLED=true
+    export CORE_PEER_LOCALMSPID=Org1MSP
+    export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp
+    export CORE_PEER_ADDRESS=peer0.org1.ownify.com:7051
+    export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/ca.crt
+    export ORDERER_CA=/etc/hyperledger/fabric/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/ca.crt
+
+    peer channel create -o orderer.ownify.com:7050 \
+      -c channel-org \
+      -f /etc/hyperledger/fabric/channel-artifacts/channel-org.tx \
+      --outputBlock /etc/hyperledger/fabric/channel-artifacts/channel-org.block \
+      --tls --cafile "$ORDERER_CA"
+
+    peer channel join -b /etc/hyperledger/fabric/channel-artifacts/channel-org.block
+
+    export CORE_PEER_ADDRESS=peer1.org1.ownify.com:8051
+    export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/ca.crt
+    peer channel join -b /etc/hyperledger/fabric/channel-artifacts/channel-org.block
+
+    export CORE_PEER_ADDRESS=peer0.org1.ownify.com:7051
+    export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/ca.crt
+    peer channel update -o orderer.ownify.com:7050 \
+      --ordererTLSHostnameOverride orderer.ownify.com \
+      -c channel-org \
+      -f /etc/hyperledger/fabric/channel-artifacts/Org1MSPanchors.tx \
+      --tls --cafile "$ORDERER_CA"
+  '
 }
 
 deploy_cc() {
@@ -72,10 +170,10 @@ deploy_cc() {
     hyperledger/fabric-tools:2.5 \
     bash -lc '
       set -e
-      cd /work/src/go
+      cd /work/channel/src/go
       [ -f go.mod ] || go mod init chaincode
       go mod tidy
-      cd /work/deploy-chaincode
+      cd /work/channel/deploy-chaincode
       chmod +x *.sh
       ./deploy-chaincode.sh
     '
@@ -95,8 +193,12 @@ down() {
 
 reset() {
   down
+  docker compose -f "$ROOT_DIR/docker-compose.yaml" down -v || true
+  rm -rf "$ROOT_DIR/create-certificate-with-ca/fabric-ca/org1/"*
+  rm -rf "$ROOT_DIR/create-certificate-with-ca/fabric-ca/ordererOrg/"*
   (cd "$ROOT_DIR/channel/explorer" && docker compose down -v || true)
   rm -rf "$ROOT_DIR/channel/crypto-config"
+  rm -rf "$ROOT_DIR/channel/channel-artifacts"/*
   echo "✅ Reset done."
 }
 
@@ -131,7 +233,21 @@ logs() {
 
 cmd="${1:-}"
 case "$cmd" in
-  up) up_ca; gen_crypto; up_fabric; channel_and_join; deploy_cc; up_explorer ;;
+  up)
+    up_ca
+    wait_for_ca_ready "ca_orderer" "Listening on https://0.0.0.0:9054"
+    wait_for_ca_ready "ca.org1.ownify.com" "Listening on https://0.0.0.0:7054"
+    gen_crypto
+    generate_channel_artifacts
+    up_fabric
+    wait_for_container_running "orderer.ownify.com"
+    wait_for_container_running "peer0.org1.ownify.com"
+    wait_for_container_running "peer1.org1.ownify.com"
+    wait_for_container_running "cli"
+    channel_and_join
+    deploy_cc
+    up_explorer
+    ;;
   up-ca) up_ca ;;
   gen-crypto) gen_crypto ;;
   up-fabric) up_fabric ;;

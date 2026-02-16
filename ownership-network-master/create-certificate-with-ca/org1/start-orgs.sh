@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 enroll_admin() {
     echo
@@ -18,16 +19,16 @@ enable_node_ous() {
     echo 'NodeOUs:
       Enable: true
       ClientOUIdentifier:
-        Certificate: cacerts/localhost-7054-ca-org1-ownify-com.pem
+        Certificate: cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem
         OrganizationalUnitIdentifier: client
       PeerOUIdentifier:
-        Certificate: cacerts/localhost-7054-ca-org1-ownify-com.pem
+        Certificate: cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem
         OrganizationalUnitIdentifier: peer
       AdminOUIdentifier:
-        Certificate: cacerts/localhost-7054-ca-org1-ownify-com.pem
+        Certificate: cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem
         OrganizationalUnitIdentifier: admin
       OrdererOUIdentifier:
-        Certificate: cacerts/localhost-7054-ca-org1-ownify-com.pem
+        Certificate: cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem
         OrganizationalUnitIdentifier: orderer' >${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/msp/config.yaml
 }
 
@@ -63,6 +64,19 @@ register_org_admin() {
     echo "======================"
     fabric-ca-client register --caname ca.org1.ownify.com \
         --id.name org1admin --id.secret org1adminpw --id.type admin \
+        --tls.certfiles ${PWD}/../fabric-ca/org1/tls-cert.pem
+}
+
+register_api_registrar() {
+    export FABRIC_CA_CLIENT_HOME=${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/
+
+    echo
+    echo "Register API registrar"
+    echo "======================"
+    fabric-ca-client register --caname ca.org1.ownify.com \
+        --id.name apiregistrar --id.secret apiregistrarpw --id.type client \
+        --id.affiliation org1.department1 \
+        --id.attrs "hf.Registrar.Roles=*:ecert,hf.Registrar.DelegateRoles=*:ecert,hf.Registrar.Attributes=*:ecert,hf.Revoker=true:ecert,hf.GenCRL=true:ecert,hf.AffiliationMgr=true:ecert" \
         --tls.certfiles ${PWD}/../fabric-ca/org1/tls-cert.pem
 }
 
@@ -196,7 +210,7 @@ generate_org_admin_tls() {
         --csr.hosts localhost \
         --tls.certfiles ${PWD}/../fabric-ca/org1/tls-cert.pem
 
-    cp ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/tlscacerts/tls-localhost-7054-ca-org1-ownify-com.pem ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/ca.crt
+    cp ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/tlscacerts/* ${PWD}/../../channel/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/ca.crt
 }
 
 # Call functions in org
@@ -210,6 +224,8 @@ sleep 1s
 register_user
 sleep 1s
 register_org_admin
+sleep 1s
+register_api_registrar
 sleep 1s
 generate_peers_msp
 sleep 1s

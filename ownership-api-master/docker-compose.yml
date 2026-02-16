@@ -21,9 +21,16 @@ services:
     environment:
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
       - OTEL_METRICS_EXPORTER=none
+      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL:-jdbc:postgresql://host.docker.internal:5432/asset_holder_db}
+      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME:-postgres}
+      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD:-Mony@1144}
+      - FABRIC_CA_ORG1_URL=${FABRIC_CA_ORG1_URL:-https://ca.org1.ownify.com:7054}
+      - FABRIC_CA_ADMIN_ID=${FABRIC_CA_ADMIN_ID:-apiregistrar}
+      - FABRIC_CA_ADMIN_PASSWORD=${FABRIC_CA_ADMIN_PASSWORD:-apiregistrarpw}
       - FABRIC_CHANNEL=channel-org
       - CONNECTION_PROFILE=/app/connection.yaml
       - WALLET_PATH=/app/wallet
+      - FABRIC_DISCOVERY=false
       - FABRIC_CHAINCODE=basic
       - COUCHDB_BASE_URL=http://couchdb0:5984
       - COUCHDB_USER=admin

@@ -6,7 +6,7 @@ export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/crypto-config/peerOrganizations/org1.o
 export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp
 export CORE_PEER_ADDRESS=peer0.org1.ownify.com:7051
 
-peer channel join -b ./channel-artifacts/channel1.block
+peer channel join -b ./channel-artifacts/channel-org.block
 
 
 sleep 2s
@@ -16,7 +16,7 @@ export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/crypto-config/peerOrganizations/org1.o
 export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp
 export CORE_PEER_ADDRESS=peer1.org1.ownify.com:8051
 
-peer channel join -b ./channel-artifacts/channel1.block
+peer channel join -b ./channel-artifacts/channel-org.block
 
 
 peer channel getinfo -c channel-org

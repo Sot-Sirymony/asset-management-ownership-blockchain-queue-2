@@ -1,17 +1,13 @@
 package com.hrd.asset_holder_api.service.serviceImp;
 
 import com.hrd.asset_holder_api.exception.NotFoundException;
-import com.hrd.asset_holder_api.helper.IdentityHelper;
-import com.hrd.asset_holder_api.model.entity.User;
 import com.hrd.asset_holder_api.model.request.UserPassword;
 import com.hrd.asset_holder_api.model.request.UserRegister;
 import com.hrd.asset_holder_api.model.request.UserRequest;
-import com.hrd.asset_holder_api.model.response.UserRequestResponse;
 import com.hrd.asset_holder_api.model.response.UserResponse;
 import com.hrd.asset_holder_api.repository.EnrollmentRepository;
 import com.hrd.asset_holder_api.service.EnrollmentService;
 import com.hrd.asset_holder_api.utils.GetCurrentUser;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hyperledger.fabric.gateway.*;
 import org.hyperledger.fabric.sdk.Enrollment;
@@ -19,19 +15,12 @@ import org.hyperledger.fabric.sdk.security.CryptoSuite;
 import org.hyperledger.fabric.sdk.security.CryptoSuiteFactory;
 import org.hyperledger.fabric_ca.sdk.HFCAClient;
 import org.hyperledger.fabric_ca.sdk.RegistrationRequest;
-import org.hyperledger.fabric_ca.sdk.exception.EnrollmentException;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.ErrorResponseException;
 
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 
 @Slf4j
@@ -43,6 +32,15 @@ public class EnrollmentServiceImp implements EnrollmentService {
 
     @Value("${pemFile}")
     private String pemFile;
+
+    @Value("${fabric.ca.org1.url:https://localhost:7054}")
+    private String fabricCaOrg1Url;
+
+    @Value("${fabric.ca.admin.id:admin}")
+    private String fabricCaAdminId;
+
+    @Value("${fabric.ca.admin.password:adminpw}")
+    private String fabricCaAdminPassword;
 
     public EnrollmentServiceImp(EnrollmentRepository enrollmentRepository, PasswordEncoder passwordEncoder) {
         this.enrollmentRepository = enrollmentRepository;
@@ -58,7 +56,7 @@ public class EnrollmentServiceImp implements EnrollmentService {
 
         try {
             // Initialize HFCAClient
-            HFCAClient caClient = HFCAClient.createNewInstance("https://localhost:7054", props);
+            HFCAClient caClient = HFCAClient.createNewInstance(fabricCaOrg1Url, props);
             CryptoSuite cryptoSuite = CryptoSuiteFactory.getDefault().getCryptoSuite();
             caClient.setCryptoSuite(cryptoSuite);
 
@@ -71,13 +69,39 @@ public class EnrollmentServiceImp implements EnrollmentService {
                 log.warn(message);
             }
 
-            // Check if admin identity exists in the wallet
-            X509Identity adminIdentity = (X509Identity) wallet.get("admin");
-            if (adminIdentity == null) {
-                throw new NotFoundException("Admin needs to be enrolled and added to the wallet first");
-            }
+            // Use CA registrar credentials for user registration.
+            Enrollment adminEnrollment = caClient.enroll(fabricCaAdminId, fabricCaAdminPassword);
+            org.hyperledger.fabric.sdk.User admin = new org.hyperledger.fabric.sdk.User() {
+                @Override
+                public String getName() {
+                    return fabricCaAdminId;
+                }
 
-            org.hyperledger.fabric.sdk.User admin = IdentityHelper.getAdminIdentity();
+                @Override
+                public java.util.Set<String> getRoles() {
+                    return null;
+                }
+
+                @Override
+                public String getAccount() {
+                    return null;
+                }
+
+                @Override
+                public String getAffiliation() {
+                    return "org1.department1";
+                }
+
+                @Override
+                public Enrollment getEnrollment() {
+                    return adminEnrollment;
+                }
+
+                @Override
+                public String getMspId() {
+                    return "Org1MSP";
+                }
+            };
 
             // Register the user, enroll the user, and import the new identity into the wallet.
             RegistrationRequest registrationRequest = new RegistrationRequest(user.getUsername());

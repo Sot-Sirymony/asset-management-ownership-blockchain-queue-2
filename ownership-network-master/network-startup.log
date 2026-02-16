@@ -1,0 +1,20 @@
+🛑 Cleaning old CA containers...
+🚀 Starting Certificate Authorities...
+time="2026-02-16T21:48:51+07:00" level=warning msg="/Users/sotsirymony/Desktop/Block Chain Assignment/All In One Source/ownership-network-master/create-certificate-with-ca/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container ca_orderer  Creating
+ Container ca.org1.ownify.com  Creating
+ Container ca.org1.ownify.com  Created
+ Container ca_orderer  Created
+ Container ca_orderer  Starting
+ Container ca.org1.ownify.com  Starting
+ Container ca_orderer  Started
+ Container ca.org1.ownify.com  Started
+
+Enroll the CA admin
+===================
+
+2026/02/16 14:48:55 [INFO] TLS Enabled
+2026/02/16 14:48:55 [INFO] generating key: &{A:ecdsa S:256}
+2026/02/16 14:48:55 [INFO] encoded CSR
+Error: POST failure of request: POST https://ca_orderer:9054/enroll
+{"hosts":["6cd92e7b3d0f"],"certificate_request":"-----BEGIN CERTIFICATE REQUEST-----\nMIIBQjCB6QIBADBdMQswCQYDVQQGEwJVUzEXMBUGA1UECBMOTm9ydGggQ2Fyb2xp\nbmExFDASBgNVBAoTC0h5cGVybGVkZ2VyMQ8wDQYDVQQLEwZGYWJyaWMxDjAMBgNV\nBAMTBWFkbWluMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEwzMVcpHH0FQ8XHzt\n7Od5mKA5uVeisX4SoWA/KvUd0lONxht4uBH4qTsywwARG9M2sfsX5ZINjNPx6LMH\nKd/PsqAqMCgGCSqGSIb3DQEJDjEbMBkwFwYDVR0RBBAwDoIMNmNkOTJlN2IzZDBm\nMAoGCCqGSM49BAMCA0gAMEUCIQCv+iLJ3SIPjcs2AWjdrtvBjt5fTUBu8Rt7eLME\nWVvKBgIgEZ1+TOFPeoKHZsKoNr0iXGGoj5rFXrOvY+sYpcaAinw=\n-----END CERTIFICATE REQUEST-----\n","profile":"","crl_override":"","label":"","NotBefore":"0001-01-01T00:00:00Z","NotAfter":"0001-01-01T00:00:00Z","ReturnPrecert":false,"CAName":"ca-orderer"}: Post "https://ca_orderer:9054/enroll": dial tcp 172.20.0.2:9054: connect: connection refused
