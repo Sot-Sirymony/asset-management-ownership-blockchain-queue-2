@@ -1,0 +1,40 @@
+services:
+  otel-collector:
+    image: otel/opentelemetry-collector:0.96.0
+    container_name: otel-collector
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes:
+      - ./otel:/etc/otelcol:ro
+    ports:
+      - "4317:4317"
+    networks:
+      - test
+
+  api:
+    build:
+      context: .
+    container_name: ownership-api
+    ports:
+      - "8081:8081"
+    networks:
+      - test
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+      - OTEL_METRICS_EXPORTER=none
+      - FABRIC_CHANNEL=channel-org
+      - CONNECTION_PROFILE=/app/connection.yaml
+      - WALLET_PATH=/app/wallet
+      - FABRIC_CHAINCODE=basic
+      - COUCHDB_BASE_URL=http://couchdb0:5984
+      - COUCHDB_USER=admin
+      - COUCHDB_PASS=password
+    depends_on:
+      - otel-collector
+    volumes:
+      - "/Users/sotsirymony/Desktop/Block Chain Assignment/All In One Source/ownership-network-master/channel/crypto-config:/etc/hyperledger/fabric/crypto-config:ro"
+      - "/Users/sotsirymony/Desktop/Block Chain Assignment/All In One Source/ownership-network-master/connection-profile/connection.yaml:/app/connection.yaml:ro"
+      - "./wallet:/app/wallet:rw"
+
+networks:
+  test:
+    external: true

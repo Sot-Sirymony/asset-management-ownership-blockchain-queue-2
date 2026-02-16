@@ -4,17 +4,29 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 NET_NAME="test"
 
+#ensure_network() {
+#  docker network ls | grep -q " ${NET_NAME}$" || docker network create "${NET_NAME}"
+#}
 ensure_network() {
-  docker network ls | grep -q " ${NET_NAME}$" || docker network create "${NET_NAME}"
+  if ! docker network inspect "$NET_NAME" >/dev/null 2>&1; then
+    docker network create "$NET_NAME"
+  fi
 }
 
 status() {
   docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 }
 
+#up_ca() {
+#  ensure_network
+#  docker compose -f "$ROOT_DIR/create-certificate-with-ca/docker-compose.yaml" up -d ca_orderer ca_org1
+#}
 up_ca() {
-  ensure_network
-  docker compose -f "$ROOT_DIR/create-certificate-with-ca/docker-compose.yaml" up -d ca_orderer ca_org1
+  echo "🛑 Cleaning old CA containers..."
+  docker rm -f ca_orderer ca.org1.ownify.com 2>/dev/null || true
+
+  echo "🚀 Starting Certificate Authorities..."
+  docker compose -f "$ROOT_DIR/create-certificate-with-ca/docker-compose.yaml" up -d
 }
 
 gen_crypto() {
@@ -87,6 +99,25 @@ reset() {
   rm -rf "$ROOT_DIR/channel/crypto-config"
   echo "✅ Reset done."
 }
+
+wait_for_ca () {
+  local name="$1"
+  local url="$2"
+
+  echo "⏳ Waiting for $name to be ready: $url"
+  for i in $(seq 1 40); do
+    if docker exec -i cli bash -lc "curl -k -s --connect-timeout 2 '$url' >/dev/null"; then
+      echo "✅ $name is ready"
+      return 0
+    fi
+    sleep 1
+  done
+
+  echo "❌ $name not ready after timeout"
+  docker logs --tail=80 "$name" || true
+  return 1
+}
+
 
 logs() {
   local what="${1:-}"

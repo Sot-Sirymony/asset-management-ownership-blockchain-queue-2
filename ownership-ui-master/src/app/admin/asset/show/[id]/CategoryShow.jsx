@@ -2,14 +2,15 @@
 
 import { UploadOutlined } from "@ant-design/icons";
 import { Create, useForm } from "@refinedev/antd";
-import { Form, Input, Typography, Modal } from "antd";
+import { Form, Input, Typography, Modal, Button, Select } from "antd";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { getAsset } from "../../../../components/service/asset.service";
+import { getAsset, transferAsset } from "../../../../components/service/asset.service";
 import { formatDateBC } from "../../../../utils/formatDate";
 import { getUserById } from "../../../../components/action/UserAction";
 import Loading from "../../../../components/components/Loading";
+import { getAllUser } from "../../../../components/service/user.service";
 
 const { Title } = Typography;
 
@@ -19,10 +20,17 @@ export default function CategoryShow() {
     const { id } = useParams();
     const { data: session } = useSession();
     const token = session?.accessToken;
+    const role = session?.user?.role;
     const [loading, setLoading] = useState(false)
     const [previewVisible, setPreviewVisible] = useState(false);
     const [previewImage, setPreviewImage] = useState("");
     const [asset, setAsset] = useState(null)
+
+    // Transfer ownership (Admin)
+    const [transferOpen, setTransferOpen] = useState(false);
+    const [users, setUsers] = useState([]);
+    const [transferLoading, setTransferLoading] = useState(false);
+    const [newAssignTo, setNewAssignTo] = useState(null);
 
     
 
@@ -59,6 +67,45 @@ export default function CategoryShow() {
         fetchData();
     }, [token, id]);
 
+    // Load user list when transfer modal opens
+    useEffect(() => {
+        const loadUsers = async () => {
+            if (!token || !transferOpen) return;
+            try {
+                // fetch a larger page so you can pick users easily
+                const all = await getAllUser(token, 100, 1);
+                setUsers(Array.isArray(all) ? all : []);
+            } catch (e) {
+                console.error("Failed to load users:", e);
+                setUsers([]);
+            }
+        };
+        loadUsers();
+    }, [token, transferOpen]);
+
+    const submitTransfer = async () => {
+        if (!newAssignTo) return;
+        setTransferLoading(true);
+        try {
+            const ok = await transferAsset(token, { newAssignTo }, id);
+            if (ok) {
+                // refresh asset to show new owner
+                const updated = await getAsset(token, id);
+                setAsset(updated);
+                if (updated?.assign_to) {
+                    const fetchedUser = await getUserById(token, updated.assign_to);
+                    form.setFieldsValue({ assignTo: fetchedUser?.fullName || "Unassigned" });
+                }
+                setTransferOpen(false);
+                setNewAssignTo(null);
+            }
+        } catch (e) {
+            console.error("Transfer failed:", e);
+        } finally {
+            setTransferLoading(false);
+        }
+    };
+
 
     const handlePreview = () => {
         setPreviewImage(asset?.attachment);
@@ -73,8 +120,18 @@ export default function CategoryShow() {
             <Form {...formProps} form={form} layout="vertical">
                 <Create title={""}>
                     <div className="leading-loose">
-                        <Title level={2} className="text-[18px] text-[#151D48] font-semibold">View Asset</Title>
-                        <p className="text-[#6F6C90]">View detailed asset information</p>
+                        <div className="flex items-center justify-between gap-4">
+                            <div>
+                                <Title level={2} className="text-[18px] text-[#151D48] font-semibold">View Asset</Title>
+                                <p className="text-[#6F6C90]">View detailed asset information</p>
+                            </div>
+
+                            {role === "ADMIN" && (
+                                <Button type="primary" onClick={() => setTransferOpen(true)}>
+                                    Transfer Ownership
+                                </Button>
+                            )}
+                        </div>
                     </div>
                     <hr className="border-[#3D7EDF] opacity-[30%]" />
                     <div className="flex gap-10 mt-5">
@@ -152,6 +209,35 @@ export default function CategoryShow() {
                         display: "block",
                         objectFit: "contain"
                     }} src={previewImage} />
+                </Modal>
+
+
+                <Modal
+                    open={transferOpen}
+                    title="Transfer Ownership"
+                    okText="Transfer"
+                    confirmLoading={transferLoading}
+                    onOk={submitTransfer}
+                    onCancel={() => {
+                        setTransferOpen(false);
+                        setNewAssignTo(null);
+                    }}
+                >
+                    <p className="mb-2">Select the new owner for this asset.</p>
+                    <Select
+                        className="w-full"
+                        placeholder="Select user"
+                        value={newAssignTo}
+                        onChange={(v) => setNewAssignTo(v)}
+                        options={users
+                            .filter((u) => u?.userId)
+                            .map((u) => ({
+                                value: Number(u.userId),
+                                label: `${u.fullName || u.username || "User"} (ID: ${u.userId})`,
+                            }))}
+                        showSearch
+                        optionFilterProp="label"
+                    />
                 </Modal>
             </Form>
         )}

@@ -8,3 +8,15 @@ chmod +x net.sh
 ./net.sh down
 ./net.sh reset     # full clean reset
 
+
+chmod +x net.sh
+./net.sh up
+
+docker network rm test
+
+
+./net.sh gen-crypto
+./net.sh up-fabric
+./net.sh channel
+./net.sh deploy-cc
+./net.sh up-explorer

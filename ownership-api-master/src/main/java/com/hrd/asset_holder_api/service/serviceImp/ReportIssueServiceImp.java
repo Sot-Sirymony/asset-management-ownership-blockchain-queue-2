@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.hrd.asset_holder_api.exception.NotFoundException;
-import com.hrd.asset_holder_api.helper.GatewayHelper;
+import com.hrd.asset_holder_api.helper.GatewayHelperV1;
 import com.hrd.asset_holder_api.model.entity.ReportIssue;
 import com.hrd.asset_holder_api.model.entity.User;
 import com.hrd.asset_holder_api.model.response.UserRequestResponse;
@@ -20,7 +20,6 @@ import org.hyperledger.fabric.gateway.Network;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -36,7 +35,7 @@ public class ReportIssueServiceImp implements ReportIssueService {
 
         reportIssue.setReportId("report00"+i);
         i++;
-        try (Gateway gateway = GatewayHelper.connect(user.getUsername())) {
+        try (Gateway gateway = GatewayHelperV1.connect(user.getUsername())) {
             Network network = gateway.getNetwork("channel-org");
             Contract contract = network.getContract("basic");
             byte[] result = contract.submitTransaction("QueryAllAssets");
@@ -89,7 +88,7 @@ public class ReportIssueServiceImp implements ReportIssueService {
     public Boolean deleteIssue(String id) {
         Integer userId = GetCurrentUser.currentId();
         UserRequestResponse user = userRepository.findUserById(userId);
-        try (Gateway gateway = GatewayHelper.connect(user.getUsername())) {
+        try (Gateway gateway = GatewayHelperV1.connect(user.getUsername())) {
             Network network = gateway.getNetwork("channel-org");
             Contract contract = network.getContract("basic");
 
@@ -111,7 +110,7 @@ public class ReportIssueServiceImp implements ReportIssueService {
     public Boolean updateIssue(String id, ReportIssue reportIssue) {
         Integer userId = GetCurrentUser.currentId();
         UserRequestResponse user = userRepository.findUserById(userId);
-        try (Gateway gateway = GatewayHelper.connect(user.getUsername())) {
+        try (Gateway gateway = GatewayHelperV1.connect(user.getUsername())) {
             Network network = gateway.getNetwork("channel-org");
             Contract contract = network.getContract("basic");
             contract.submitTransaction("UpdateReportIssue",
@@ -139,7 +138,7 @@ public class ReportIssueServiceImp implements ReportIssueService {
     public JsonNode getIssueById(String id) {
         Integer userId = GetCurrentUser.currentId();
         UserRequestResponse userResponse = userRepository.findUserById(userId);
-        try (Gateway gateway = GatewayHelper.connect(userResponse.getUsername())) {
+        try (Gateway gateway = GatewayHelperV1.connect(userResponse.getUsername())) {
 
             Network network = gateway.getNetwork("channel-org");
             Contract contract = network.getContract("basic");
@@ -191,7 +190,7 @@ public class ReportIssueServiceImp implements ReportIssueService {
     public JsonNode getAllIssue() {
         Integer userId = GetCurrentUser.currentId();
         UserRequestResponse userResponse = userRepository.findUserById(userId);
-        try (Gateway gateway = GatewayHelper.connect(userResponse.getUsername())) {
+        try (Gateway gateway = GatewayHelperV1.connect(userResponse.getUsername())) {
 
             Network network = gateway.getNetwork("channel-org");
             Contract contract = network.getContract("basic");

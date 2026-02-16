@@ -1,24 +1,4 @@
 services:
-  cli:
-    image: hyperledger/fabric-tools:2.5
-    container_name: cli
-    tty: true
-    stdin_open: true
-    environment:
-      - FABRIC_CFG_PATH=/etc/hyperledger/fabric/config
-      - CORE_PEER_TLS_ENABLED=true
-      - CORE_PEER_LOCALMSPID=Org1MSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp
-      - CORE_PEER_ADDRESS=peer0.org1.ownify.com:7051
-      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/ca.crt
-    volumes:
-      - ./channel:/etc/hyperledger/fabric
-    networks:
-      - test
-    depends_on:
-      - peer0.org1.ownify.com
-      - orderer.ownify.com
-
   # =========================
   # Certificate Authorities
   # =========================

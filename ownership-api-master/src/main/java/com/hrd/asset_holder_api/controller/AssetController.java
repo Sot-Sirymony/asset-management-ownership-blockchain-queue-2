@@ -111,6 +111,13 @@ public class AssetController {
         return ResponseEntity.ok(res);
     }
 
+    // Backward-compatible, correctly spelled endpoint
+    @PutMapping("/admin/transferAsset/{id}")
+    @Operation(summary = "Admin transfer asset (alias)")
+    public ResponseEntity<ApiResponse<Boolean>> transferAssetAlias(@PathVariable String id, @RequestBody AssetTrasferRequest assetTrasferRequest) throws IOException {
+        return transferAsset(id, assetTrasferRequest);
+    }
+
     @DeleteMapping("/user/deleteAsset/{id}")
     @Operation(summary = "User delete asset")
     public ResponseEntity<ApiResponse<Boolean>> deleteAsset(@PathVariable String id) throws IOException {

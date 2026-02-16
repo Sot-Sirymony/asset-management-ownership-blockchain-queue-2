@@ -5,9 +5,737 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa8d25ee-5028-457e-8691-602b0ee122c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../docker-compose/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/channel/deploy-chaincode/deploy-chaincode-readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/channel/deploy-chaincode/deploy_cc_template.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sestup_v1_readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/ArtifactsSdkApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/ArtifactsSdkApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/AssetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/AssetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/DepartmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/helper/GatewayHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/DepartmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/AssetServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/AssetServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/DepartmentServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/DepartmentServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/ReportIssueServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/ReportIssueServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/connection-org1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/ca/ca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/ca/priv_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/fabric-ca-client-config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/cacerts/ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/keystore/1226f20b6af12ece1518861c54ee38ed5eb50ad2f2d4f2d6b9b86802deb30ae1_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/keystore/64ab099cf58fdc3bc7bd22af59e87cdfec83143c59ef1b5867576d862142e827_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/keystore/7b0dcedca54da34b1dd5751c73fe5a27b3dd9955d251fac2d47601f907ca80f3_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/keystore/884aa352a897a07d2788019376898519bfa9f05596b718ae8a935c299ef0f934_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/tlscacerts/tlsca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/cacerts/ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/keystore/476496db222db04d57eb8b7ad6bc0620fd7ed53a146d951b3a810d979f6a565b_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/tlscacerts/tlsca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/keystore/47942738b887382541ba0e74d468f3a864730b11165b7f8992fc4146a0e43b55_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/tlscacerts/tls-ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/cacerts/ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/keystore/3c4a4a1b9134d9cd0f025fd36e957d38ccd28eaa4b7f3669f15e5ab4d60cc2ec_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/tlscacerts/tlsca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/keystore/e837650688537b05c1a06675dd784924349eab3531edd7b06e1fbef4e90d82e1_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/tlscacerts/tls-ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/cacerts/ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/keystore/4f8d1717ff414bfcf8893953596a51513aca0cc0b79d05718160f2484b9b91b2_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/tlscacerts/tlsca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/keystore/d4a54f00332f0a7907ae49d62525400f64f8b15b7a064c70843b3fff5b05ab52_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/tlscacerts/tls-ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/tlsca/tlsca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/ca/ca.org1.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/ca/priv_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/fabric-ca-client-config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/keystore/251e1dc06392e062422bdb1b2122aa463ab86a70fd49f85522cd61e8b3b86710_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/tlscacerts/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/keystore/8021d2ac5b39595eeecb211d159dffeb4d15d688892ab16bce716da5ba7b5d37_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/tlscacerts/tlsca.org1.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/keystore/e5f995f5e73bac81850110c9b1d532b1cbc63d988aebe0ef59fede33a383c7ea_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/tlscacerts/tls-ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/keystore/e2bcdad11dac4da63c25203dba8ad6c02ed1b8b270a35afe9e42b08b27137326_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/tlscacerts/tlsca.org1.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/keystore/014e64c5da80c99dde5ae3c3e3c9c19fdc81b44444351353b9394c26a4e9f347_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/tlscacerts/tls-ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/tlsca/tlsca.org1.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/keystore/priv_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/keystore/3345776fb473e8e45d1d5728e7db865374623c57a4bfb010a15498e1cd4dc08d_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/tlscacerts/tls-ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp/cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp/keystore/priv_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/main/resources/images/c3989c6a-7d90-4a14-84d9-79ec36899795.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/src/test/java/com/hrd/asset_holder_api/AssetHolderApiApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/wallet/dalen.phea.id" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-api-master/wallet/sirymony.sot.id" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-certificate-with-ca/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/create-certificate-with-ca/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/base.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/channel/5.create-app-channel.sh" beforeDir="false" afterPath="$PROJECT_DIR$/channel/5.create-app-channel.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/net-readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/net-readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/net.sh" beforeDir="false" afterPath="$PROJECT_DIR$/net.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup_v1.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-ui-master/src/app/admin/asset/show/[id]/CategoryShow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-ui-master/src/app/admin/asset/show/[id]/CategoryShow.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ownership-ui-master/src/app/api/auth/[...nextauth]/authOptions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ownership-ui-master/src/app/api/auth/[...nextauth]/authOptions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/public.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/public2.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/ArtifactsSdkApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/BeanConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SwaggerAccessLoggingFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/AppFileController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/AssetController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/AssetReqeustController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/AuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/DepartmentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/EnrollmentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/ReportIssueController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/exception/GlobalExceptionHandle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/exception/NotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/helper/GatewayHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/helper/IdentityHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/jwt/JwtAuthEntrypoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/jwt/JwtAuthFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/jwt/JwtUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/entity/Asset.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/entity/AssetRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/entity/Dashboard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/entity/Department.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/entity/FileUpload.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/entity/ReportIssue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/request/AssetRequestRes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/request/AssetTrasferRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/request/DepartmentRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/request/UserPassword.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/request/UserRegister.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/request/UserRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/response/ApiResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/response/DepartmentResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/response/FileUploadResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/response/LoginReq.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/response/LoginRes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/response/UserRequestResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/response/UserResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/repository/AssetRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/repository/AssetRequestRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/repository/DepartmentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/repository/EnrollmentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/AdminService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/AppFileService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/AppUserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/AssetRequestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/AssetService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/AuthService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/DepartmentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/EnrollmentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/ReportIssueService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/AdminServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/AppFileServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/AssetRequestServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/AssetServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/AuthServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/CustomUserDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/DepartmentServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/EnrollmentServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/ReportIssueServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/java/com/hrd/asset_holder_api/utils/GetCurrentUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/connection-org1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/ca/ca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/ca/priv_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/fabric-ca-client-config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/cacerts/ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/keystore/1226f20b6af12ece1518861c54ee38ed5eb50ad2f2d4f2d6b9b86802deb30ae1_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/keystore/64ab099cf58fdc3bc7bd22af59e87cdfec83143c59ef1b5867576d862142e827_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/keystore/7b0dcedca54da34b1dd5751c73fe5a27b3dd9955d251fac2d47601f907ca80f3_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/keystore/884aa352a897a07d2788019376898519bfa9f05596b718ae8a935c299ef0f934_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/keystore/8edf5ace1d4ad0f70db13efdbf58faebc2c52ee7d48eb4b9c301eb11b826a7c6_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/tlscacerts/tlsca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/cacerts/ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/keystore/476496db222db04d57eb8b7ad6bc0620fd7ed53a146d951b3a810d979f6a565b_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/tlscacerts/tlsca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/keystore/47942738b887382541ba0e74d468f3a864730b11165b7f8992fc4146a0e43b55_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/tlscacerts/tls-ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/cacerts/ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/keystore/3c4a4a1b9134d9cd0f025fd36e957d38ccd28eaa4b7f3669f15e5ab4d60cc2ec_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/tlscacerts/tlsca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/keystore/e837650688537b05c1a06675dd784924349eab3531edd7b06e1fbef4e90d82e1_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/tlscacerts/tls-ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/cacerts/ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/keystore/4f8d1717ff414bfcf8893953596a51513aca0cc0b79d05718160f2484b9b91b2_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/tlscacerts/tlsca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/keystore/d4a54f00332f0a7907ae49d62525400f64f8b15b7a064c70843b3fff5b05ab52_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/tlscacerts/tls-ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/tlsca/tlsca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/ca/ca.org1.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/ca/priv_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/fabric-ca-client-config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/keystore/251e1dc06392e062422bdb1b2122aa463ab86a70fd49f85522cd61e8b3b86710_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/tlscacerts/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/keystore/8021d2ac5b39595eeecb211d159dffeb4d15d688892ab16bce716da5ba7b5d37_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/tlscacerts/tlsca.org1.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/keystore/e5f995f5e73bac81850110c9b1d532b1cbc63d988aebe0ef59fede33a383c7ea_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/tlscacerts/tls-ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/keystore/e2bcdad11dac4da63c25203dba8ad6c02ed1b8b270a35afe9e42b08b27137326_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/tlscacerts/tlsca.org1.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/keystore/014e64c5da80c99dde5ae3c3e3c9c19fdc81b44444351353b9394c26a4e9f347_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/tlscacerts/tls-ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/tlsca/tlsca.org1.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/keystore/priv_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/keystore/3345776fb473e8e45d1d5728e7db865374623c57a4bfb010a15498e1cd4dc08d_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/tlscacerts/tls-ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp/cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp/keystore/priv_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/fabric.config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/main/resources/shcema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/src/test/java/com/hrd/asset_holder_api/AssetHolderApiApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v2/ownership-api-master/wallet/admin.id" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/public.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/public2.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/ArtifactsSdkApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/BeanConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/SwaggerAccessLoggingFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/configuration/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/AppFileController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/AssetController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/AssetReqeustController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/AuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/DepartmentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/EnrollmentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/controller/ReportIssueController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/exception/GlobalExceptionHandle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/exception/NotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/helper/GatewayHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/helper/IdentityHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/jwt/JwtAuthEntrypoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/jwt/JwtAuthFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/jwt/JwtUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/entity/Asset.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/entity/AssetRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/entity/Dashboard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/entity/Department.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/entity/FileUpload.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/entity/ReportIssue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/request/AssetRequestRes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/request/AssetTrasferRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/request/DepartmentRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/request/UserPassword.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/request/UserRegister.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/request/UserRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/response/ApiResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/response/DepartmentResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/response/FileUploadResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/response/LoginReq.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/response/LoginRes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/response/UserRequestResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/model/response/UserResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/repository/AssetRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/repository/AssetRequestRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/repository/DepartmentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/repository/EnrollmentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/AdminService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/AppFileService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/AppUserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/AssetRequestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/AssetService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/AuthService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/DepartmentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/EnrollmentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/ReportIssueService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/AdminServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/AppFileServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/AssetRequestServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/AssetServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/AuthServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/CustomUserDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/DepartmentServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/EnrollmentServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/service/serviceImp/ReportIssueServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/java/com/hrd/asset_holder_api/utils/GetCurrentUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/connection-org1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/connection.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/ca/ca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/ca/priv_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/fabric-ca-client-config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/cacerts/ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/keystore/1226f20b6af12ece1518861c54ee38ed5eb50ad2f2d4f2d6b9b86802deb30ae1_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/keystore/64ab099cf58fdc3bc7bd22af59e87cdfec83143c59ef1b5867576d862142e827_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/keystore/7b0dcedca54da34b1dd5751c73fe5a27b3dd9955d251fac2d47601f907ca80f3_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/keystore/884aa352a897a07d2788019376898519bfa9f05596b718ae8a935c299ef0f934_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/msp/tlscacerts/tlsca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/cacerts/ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/keystore/476496db222db04d57eb8b7ad6bc0620fd7ed53a146d951b3a810d979f6a565b_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/msp/tlscacerts/tlsca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/keystore/47942738b887382541ba0e74d468f3a864730b11165b7f8992fc4146a0e43b55_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/tlscacerts/tls-ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/cacerts/ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/keystore/3c4a4a1b9134d9cd0f025fd36e957d38ccd28eaa4b7f3669f15e5ab4d60cc2ec_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/msp/tlscacerts/tlsca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/keystore/e837650688537b05c1a06675dd784924349eab3531edd7b06e1fbef4e90d82e1_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer2.ownify.com/tls/tlscacerts/tls-ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/cacerts/ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/keystore/4f8d1717ff414bfcf8893953596a51513aca0cc0b79d05718160f2484b9b91b2_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/msp/tlscacerts/tlsca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/keystore/d4a54f00332f0a7907ae49d62525400f64f8b15b7a064c70843b3fff5b05ab52_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/orderers/orderer3.ownify.com/tls/tlscacerts/tls-ca_orderer-9054-ca-orderer.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/ordererOrganizations/ownify.com/tlsca/tlsca.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/ca/ca.org1.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/ca/priv_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/fabric-ca-client-config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/keystore/251e1dc06392e062422bdb1b2122aa463ab86a70fd49f85522cd61e8b3b86710_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/msp/tlscacerts/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/keystore/8021d2ac5b39595eeecb211d159dffeb4d15d688892ab16bce716da5ba7b5d37_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/msp/tlscacerts/tlsca.org1.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/keystore/e5f995f5e73bac81850110c9b1d532b1cbc63d988aebe0ef59fede33a383c7ea_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/tlscacerts/tls-ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/keystore/e2bcdad11dac4da63c25203dba8ad6c02ed1b8b270a35afe9e42b08b27137326_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/msp/tlscacerts/tlsca.org1.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/keystore/014e64c5da80c99dde5ae3c3e3c9c19fdc81b44444351353b9394c26a4e9f347_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/tlscacerts/tls-ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/tlsca/tlsca.org1.ownify.com-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/keystore/priv_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/ca.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/keystore/3345776fb473e8e45d1d5728e7db865374623c57a4bfb010a15498e1cd4dc08d_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/server.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/server.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/Admin@org1.ownify.com/tls/tlscacerts/tls-ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp/IssuerPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp/IssuerRevocationPublicKey" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp/cacerts/ca-org1-ownify-com-7054-ca-org1-ownify-com.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp/keystore/priv_sk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/crypto-config/peerOrganizations/org1.ownify.com/users/User1@org1.ownify.com/msp/signcerts/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/fabric.config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/main/resources/shcema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/test/java/com/hrd/asset_holder_api/controller/AppFileControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/test/java/com/hrd/asset_holder_api/controller/AssetControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/test/java/com/hrd/asset_holder_api/controller/AssetRequestControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/test/java/com/hrd/asset_holder_api/controller/AuthControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/test/java/com/hrd/asset_holder_api/controller/DepartmentControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/test/java/com/hrd/asset_holder_api/controller/EnrollmentControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/test/java/com/hrd/asset_holder_api/controller/ReportIssueControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/src/test/java/com/hrd/asset_holder_api/testsupport/SecurityTestSupport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api v3/ownership-api-master/wallet/admin.id" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../update api/ownership-api-master/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/next.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/asset-request/layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/asset-request/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/asset/create/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/asset/edit/[id]/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/asset/layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/asset/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/asset/show/[id]/CategoryShow.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/asset/show/[id]/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/dashboard/layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/dashboard/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/department/layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/department/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/history/layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/history/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/profile/edit/[id]/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/profile/layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/profile/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/profile/show/[id]/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/report-issue/layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/report-issue/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/user/create/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/user/edit/[id]/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/user/layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/user/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/admin/user/show/[id]/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/api/auth/[...nextauth]/authOptions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/api/auth/[...nextauth]/route.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/clientRoot.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/action/AssetAction.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/action/AssetRequestAction.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/action/DepartmentAction.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/action/UserAction.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/11.png.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/DB1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/DB2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/DB3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/DB5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/DB6.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/DB7.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/Icon (1).svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/Icon (5).svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/Illustration.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/Info-Square.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/Total-Department.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/Vector (1).svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/approve.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/arrow.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/asset-requestsd.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/asset.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/createDepartment.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/dalen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/date-of-birth.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/decentrailize.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/delete-icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/delete.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/delete.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/department-profile.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/department.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/department_icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/down-arrow.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/edit-icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/edit.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/edit.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/email.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/excel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/facebook.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/filter.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/gender.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/history.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/hong.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/image 19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/image 19.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/laptop_lenovo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/layers.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/linear.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/linear2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/meng.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/multipleAsset.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/my-profile.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/phone-number.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/powerAsset.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/powerpoint.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/realTime.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/reject.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/report_icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/signout.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/telegram.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/total-asset-request.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/total-report-issue.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/total-user.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/transfer.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/trash-pop.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/up-arrow.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/user.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/userFriendly.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/view-datail.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/view-detail.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/app-icon/word.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/client/AssetCreateClient.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/client/AssetListClient.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/client/AssetRequestListClient.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/client/DashboardClient.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/client/DepartmentListingClient.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/client/HistoryClient.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/client/ShowAssetRequestClient.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/client/UpdateAssetClient.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/Card.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/ChangePassword.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/ConditionOption.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/CreateAssetRequest.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/CreateDapartment.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/CreateReportIssue.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/CreateUser.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/CustomHeader.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/DeleteAssetPopup.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/DeleteDepartmentPopup.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/DeletePopup.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/DeleteReportPopup.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/Filter.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/FilterPopup.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/Loading.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/LoginPopup.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/ProfileDropdown.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/Tags.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/TransferAssetPopup.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/UpdateAssetRequest.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/UpdateDepartment.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/UpdateReportIssue.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/UserCard.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/ViewReportIssue.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/components/ViewRequest.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/header/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/service/asset.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/service/assetRequest.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/service/auth.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/service/department.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/service/file.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/service/history.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/service/report.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/service/user.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/components/store/authentication.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/icon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/not-found.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/providers/auth-provider/AuthProvider.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/providers/data-provider/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/providers/devtools/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/user/asset-request/layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/user/asset-request/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/user/asset/layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/user/asset/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/user/asset/show/[id]/CategoryShow.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/user/asset/show/[id]/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/user/history/layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/user/history/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/user/profile/edit/[id]/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/user/profile/layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/user/profile/show/[id]/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/user/report-issue/layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/user/report-issue/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/utils/asset-request.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/utils/asset.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/utils/formatDate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/utils/getUserRole.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/utils/header.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/app/utils/userMockData.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/middleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/styles/globals.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/src/utils/resourceLabel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../updated ui/ownership-ui-master/tailwind.config.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +750,9 @@
 }</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -54,7 +785,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Docker.explorer/docker-compose.yaml: Compose Deployment">
+  <component name="RunManager" selected="Docker.create-certificate-with-ca/docker-compose.yaml: Compose Deployment">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -120,10 +851,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.create-certificate-with-ca/docker-compose.yaml: Compose Deployment" />
         <item itemvalue="Docker.explorer/docker-compose.yaml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yaml.orderer.ownify.com: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yaml.orderer2.ownify.com: Compose Deployment" />
-        <item itemvalue="Docker.create-certificate-with-ca/docker-compose.yaml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
       </list>
     </recent_temporary>
@@ -141,6 +872,7 @@
       <workItem from="1769872440923" duration="1187000" />
       <workItem from="1769873642465" duration="28059000" />
       <workItem from="1770482715983" duration="148000" />
+      <workItem from="1770524501124" duration="34989000" />
     </task>
     <servers />
   </component>
