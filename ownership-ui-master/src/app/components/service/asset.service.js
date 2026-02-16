@@ -106,7 +106,7 @@ export const transferAsset = async (token,data, assetId) => {
         newAssignTo: data?.newAssignTo,
     };
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/admin/trasferAsset/${assetId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/admin/transferAsset/${assetId}`,
         {
             method: "PUT",
             headers: header,

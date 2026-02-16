@@ -3,7 +3,7 @@ import Toastify from 'toastify-js';
 import "toastify-js/src/toastify.css";
 
 
-export const getAllUser = async (token, size = 1, page = 20) => {
+export const getAllUser = async (token, size = 20, page = 1) => {
     const header = await reqHeader(token);
 
     try {
@@ -26,7 +26,31 @@ export const getAllUser = async (token, size = 1, page = 20) => {
 
         if (res.headers.get('Content-Type')?.includes('application/json')) {
             const data = JSON.parse(text);
-            return data.payload || [];
+            const users = data.payload || [];
+            if (users.length > 0) {
+                return users;
+            }
+
+            // Fallback: when no non-admin users exist yet, include current profile
+            // so assignment/transfer forms still have at least one selectable user.
+            const profileRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/getProfile`, {
+                headers: header,
+                cache: "no-store",
+            });
+            if (profileRes.ok && profileRes.headers.get("Content-Type")?.includes("application/json")) {
+                const profileData = await profileRes.json();
+                const profile = profileData?.payload;
+                if (profile?.userId) {
+                    return [{
+                        userId: profile.userId,
+                        fullName: profile.fullName || profile.username || "Current User",
+                        profileImg: profile.profileImg || "",
+                        department: profile.department || { dep_name: "" },
+                    }];
+                }
+            }
+
+            return [];
         } else {
             console.error("Invalid Content-Type:", res.headers.get('Content-Type'));
             return [];

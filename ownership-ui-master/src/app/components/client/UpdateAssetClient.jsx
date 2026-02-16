@@ -154,7 +154,13 @@ export default function UpdateAssetClient({ initialRecord }) {
                                             setValue("assignTo", value);
                                         }}>
                                         {users.map((user) => (
-                                            <Select.Option onClick={() => console.log("userId", user.userId)} value={user.userId}>{user.fullName}</Select.Option>
+                                            <Select.Option
+                                                key={user.userId}
+                                                onClick={() => console.log("userId", user.userId)}
+                                                value={user.userId}
+                                            >
+                                                {user.fullName}
+                                            </Select.Option>
                                         ))}
                                     </Select>
                                 </Form.Item>

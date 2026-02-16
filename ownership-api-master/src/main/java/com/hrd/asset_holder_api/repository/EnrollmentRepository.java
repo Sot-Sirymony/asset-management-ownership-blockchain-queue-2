@@ -1,12 +1,10 @@
 package com.hrd.asset_holder_api.repository;
 
-import com.hrd.asset_holder_api.model.entity.User;
 import com.hrd.asset_holder_api.model.request.UserPassword;
 import com.hrd.asset_holder_api.model.request.UserRegister;
 import com.hrd.asset_holder_api.model.request.UserRequest;
 import com.hrd.asset_holder_api.model.response.UserResponse;
 import org.apache.ibatis.annotations.*;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -29,7 +27,7 @@ public interface EnrollmentRepository {
 
     //----------------Get all user for admin------------
     @Select("SELECT * FROM users WHERE role != 'ADMIN' " +
-            "LIMIT #{page} OFFSET ${page} * (#{size}-1)")
+            "LIMIT #{size} OFFSET ((#{page} - 1) * #{size})")
     @Result(property = "userId", column = "user_id")
     @Result(property = "fullName", column = "full_name")
     @Result(property = "department", column = "dep_id",

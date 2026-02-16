@@ -6,9 +6,9 @@ import org.hyperledger.fabric.gateway.Identities;
 import org.hyperledger.fabric.gateway.Identity;
 import org.hyperledger.fabric.gateway.Wallet;
 import org.hyperledger.fabric.gateway.Wallets;
+import org.hyperledger.fabric.sdk.Enrollment;
 import org.hyperledger.fabric.sdk.security.CryptoSuite;
 import org.hyperledger.fabric.sdk.security.CryptoSuiteFactory;
-import org.hyperledger.fabric_ca.sdk.EnrollmentRequest;
 import org.hyperledger.fabric_ca.sdk.HFCAClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -18,9 +18,6 @@ import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Properties;
 
 @Slf4j
@@ -32,10 +29,17 @@ public class AdminServiceImp implements AdminService {
     @Value("${pemFile}")
     private String pemFile;
 
-    Map<String, Object> res = null;
-    Properties props = null;
-    HFCAClient caClient = null;
-    Wallet wallet = null;
+    @Value("${fabric.ca.org1.url:https://ca.org1.ownify.com:7054}")
+    private String fabricCaOrg1Url;
+
+    @Value("${fabric.org1.mspId:Org1MSP}")
+    private String fabricOrg1MspId;
+
+    @Value("${fabric.gateway.admin.id:admin}")
+    private String fabricGatewayAdminId;
+
+    @Value("${fabric.gateway.admin.password:adminpw}")
+    private String fabricGatewayAdminPassword;
 
     public AdminServiceImp(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
@@ -45,41 +49,32 @@ public class AdminServiceImp implements AdminService {
     @EventListener(ApplicationReadyEvent.class)
     @Override
     public void enrollService() {
-        props = new Properties();
+        Properties props = new Properties();
         props.put("pemFile", pemFile);
         props.put("allowAllHostNames", "true");
 
         try {
-            caClient = HFCAClient.createNewInstance("https://localhost:7054", props);
+            HFCAClient caClient = HFCAClient.createNewInstance(fabricCaOrg1Url, props);
             CryptoSuite cryptoSuite = CryptoSuiteFactory.getDefault().getCryptoSuite();
             caClient.setCryptoSuite(cryptoSuite);
 
-            String enrollmentID = "admin";
-            String password = "adminpw";
+            String walletPath = System.getenv().getOrDefault("WALLET_PATH", "wallet");
+            Wallet wallet = Wallets.newFileSystemWallet(Paths.get(walletPath));
 
-            wallet = Wallets.newFileSystemWallet(Paths.get("wallet"));
+            // Always refresh gateway identity on startup so wallet stays valid after Fabric network reset.
+            Enrollment enrollment = caClient.enroll(fabricGatewayAdminId, fabricGatewayAdminPassword);
+            Identity identity = Identities.newX509Identity(fabricOrg1MspId, enrollment);
+            wallet.put(fabricGatewayAdminId, identity);
 
-            if(wallet.get(enrollmentID) != null) {
-                res = new HashMap<>();
-                res.put("localDateTime", LocalDateTime.now());
-                res.put("message", "An identity for the admin user \"admin\" already exists in the wallet");
-                return;
+            if (userRepository.findUserByUsername(fabricGatewayAdminId) == null) {
+                String encodedPassword = passwordEncoder.encode(fabricGatewayAdminPassword);
+                userRepository.createAdmin(fabricGatewayAdminId, encodedPassword);
             }
-
-            // Enroll the admin user, and import the new identity into the wallet.
-            EnrollmentRequest enrollmentRequestTLS = new EnrollmentRequest();
-            enrollmentRequestTLS.addHost("localhost");
-            enrollmentRequestTLS.setProfile("tls");
-
-            org.hyperledger.fabric.sdk.Enrollment enrollment = caClient.enroll(enrollmentID, password, enrollmentRequestTLS);
-            Identity user = Identities.newX509Identity("Org1MSP", enrollment);
-            wallet.put(enrollmentID, user);
-            String encodedPassword = passwordEncoder.encode(password);
-            userRepository.createAdmin(enrollmentID, encodedPassword);
-
-            res = new HashMap<>();
-            res.put("localDateTime", LocalDateTime.now());
-            res.put("message", "Successfully enrolled " + enrollmentID + " and imported into the wallet");
+            log.info(
+                    "Successfully refreshed Fabric gateway identity '{}' in wallet path '{}'",
+                    fabricGatewayAdminId,
+                    walletPath
+            );
 
         } catch (Exception e) {
             log.error("Error during admin enrollment: {}", e.getMessage(), e);

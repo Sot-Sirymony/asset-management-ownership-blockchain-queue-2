@@ -29,6 +29,7 @@ export default function AssetListClient() {
     const [selectedAssetId, setSelectedAssetId] = useState(null);
     const [loading, setLoading] = useState(false)
     const [filteredAssets, setFilteredAssets] = useState([]);
+    const [selectedOwnerId, setSelectedOwnerId] = useState(null);
 
     const [filterCriteria, setFilterCriteria] = useState({
         date: "",
@@ -66,14 +67,16 @@ export default function AssetListClient() {
         router.push(`/admin/asset/create/`);
     };
 
-    const handleTransferClick = (assetId) => {
+    const handleTransferClick = (assetId, ownerId) => {
         setSelectedAssetId(assetId);
+        setSelectedOwnerId(ownerId ? Number(ownerId) : null);
         setIstransferVisible(true);
     };
 
     const closeTransfer = () => {
         setIstransferVisible(false);
         setSelectedAssetId(null);
+        setSelectedOwnerId(null);
     };
 
     const handleDeleteClick = (assetId) => {
@@ -275,7 +278,7 @@ export default function AssetListClient() {
                             dataIndex="assignTo"
                             title={"Assign To"}
                             render={(_, record) => (
-                                <div onClick={() => handleTransferClick(record.assetId)} className="flex items-center">
+                                <div onClick={() => handleTransferClick(record.assetId, record.assignTo?.userId)} className="flex items-center">
                                     <img
                                         src={record.profileImg}
                                         alt={record.fullName}
@@ -315,7 +318,13 @@ export default function AssetListClient() {
 
             {isPopupVisible && <DeletePopup assetId={selectedAssetId} onClose={closePopup} />}
             {isFilterVisible && <Filter onClose={closeFilter} onSave={handleFilterSave} initialFilters={filterCriteria}/>}
-            {isTransferVisible && <TransferAssetPopup assetId={selectedAssetId} onClose={closeTransfer} />}
+            {isTransferVisible && (
+                <TransferAssetPopup
+                    assetId={selectedAssetId}
+                    currentOwnerId={selectedOwnerId}
+                    onClose={closeTransfer}
+                />
+            )}
         </section>
     );
 }

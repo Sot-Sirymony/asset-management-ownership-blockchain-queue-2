@@ -10,20 +10,17 @@ import { getAllUser } from "../service/user.service";
 import { useSession } from "next-auth/react";
 import { uploadImages } from "../service/file.service";
 import { addAsset } from "../action/AssetAction";
-import { useForm } from "react-hook-form";
 import Loading from "../components/Loading";
 
 export default function CategoryCreateClient() {
     const router = useRouter();
     const { data: session } = useSession();
     const token = session?.accessToken;
-    const { formProps, saveButtonProps } = useForm({});
     const [previewVisible, setPreviewVisible] = useState(false);
     const [previewImage, setPreviewImage] = useState("");
     const [fileList, setFileList] = useState([]);
     const [users, setUsers] = useState([])
     const [loading, setLoading] = useState(false);
-    const { setValue, register, handleSubmit, formState: { errors }, } = useForm();
 
     const handlePreview = async (file) => {
         setPreviewImage(file.url || file.preview);
@@ -32,7 +29,7 @@ export default function CategoryCreateClient() {
 
     const handleChange = ({ fileList }) => setFileList(fileList);
 
-    const onFinish = async (values, asset) => {
+    const onFinish = async (values) => {
         setLoading(true); 
         try {
             const file = fileList[0]?.originFileObj;
@@ -45,12 +42,12 @@ export default function CategoryCreateClient() {
 
             const res = await uploadImages(formData);
             const newAsset = {
-                assetName: asset.assetName,
-                qty: asset.qty,
-                unit: asset.unit,
-                condition: asset.condition,
+                assetName: values.assetName,
+                qty: values.qty,
+                unit: values.unit,
+                condition: values.condition,
                 attachment: res.payload.fileUrl,
-                assignTo: asset.assignTo,
+                assignTo: values.assignTo,
             };
             await addAsset(token, newAsset);
             router.push("/admin/asset");
@@ -76,7 +73,7 @@ export default function CategoryCreateClient() {
             {loading ? (
           <Loading />
         ) : (
-            <Form {...formProps} layout="vertical" onFinish={handleSubmit(onFinish)}>
+            <Form layout="vertical" onFinish={onFinish}>
                 <Create title={""}>
                     <div className="mb-5 leading-loose">
                         <h1 className="text-2xl font-semibold text-[#151D48]">Assign Asset</h1>
@@ -90,7 +87,7 @@ export default function CategoryCreateClient() {
                                 name="assetName"
                                 rules={[{ required: true, message: "Please enter an asset name" }]}
                             >
-                                <Input {...register('assetName')} placeholder="Enter asset name" />
+                                <Input placeholder="Enter asset name" />
                             </Form.Item>
 
                             <Form.Item
@@ -112,9 +109,6 @@ export default function CategoryCreateClient() {
                                 }]}
                             >
                                 <Input
-                                    {...register("qty", {
-                                        valueAsNumber: true,
-                                    })}
                                     placeholder="Enter quantity"
                                     type="number"
                                 />
@@ -126,7 +120,7 @@ export default function CategoryCreateClient() {
                                 message: "Please input unit"
                             }]}
                             >
-                                <Input {...register('unit')} placeholder="Enter unit" />
+                                <Input placeholder="Enter unit" />
                             </Form.Item>
 
                             <Form.Item
@@ -137,14 +131,15 @@ export default function CategoryCreateClient() {
                                     message: "Please select assign to"
                                 }]}
                             >
-                                <Select placeholder="Select a user"
-                                    {...register("assignTo", { required: "Please select a user" })}
-                                    onChange={(value) => {
-                                        setValue("assignTo", value);
-                                    }}
-                                >
+                                <Select placeholder="Select a user">
                                     {users.map((user) => (
-                                        <Select.Option onClick={() => console.log("userId", user.userId)} value={user.userId}>{user.fullName}</Select.Option>
+                                        <Select.Option
+                                            key={user.userId}
+                                            onClick={() => console.log("userId", user.userId)}
+                                            value={user.userId}
+                                        >
+                                            {user.fullName}
+                                        </Select.Option>
                                     ))}
                                 </Select>
                             </Form.Item>
@@ -157,12 +152,7 @@ export default function CategoryCreateClient() {
                                     message: "Please select condition"
                                 }]}
                             >
-                                <Select placeholder="Select condition"
-                                    {...register("condition", { required: "Please select a condition" })}
-                                    onChange={(value) => {
-                                        setValue("condition", value);
-                                    }}
-                                >
+                                <Select placeholder="Select condition">
                                     <Select.Option value="Good">Good</Select.Option>
                                     <Select.Option value="Medium">Medium</Select.Option>
                                     <Select.Option value="Low">Low</Select.Option>

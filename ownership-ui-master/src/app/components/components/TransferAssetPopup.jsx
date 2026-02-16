@@ -5,7 +5,7 @@ import { getAllUser } from '../service/user.service'
 import { useSession } from 'next-auth/react';
 import { transferAsset } from '../service/asset.service';
 import Loading from './Loading';
-export default function TransferAssetPopup({ onClose, assetId }) {
+export default function TransferAssetPopup({ onClose, assetId, currentOwnerId }) {
     // const { id } = useParams();
     const { data: session } = useSession();
     const token = session?.accessToken;
@@ -24,6 +24,10 @@ export default function TransferAssetPopup({ onClose, assetId }) {
     useEffect(() => {
         fetchUser();
     }, [token]);
+
+    const availableUsers = users.filter(
+        (user) => String(user.userId) !== String(currentOwnerId)
+    );
 
     const handleTransfer = async () => {
        setLoading(true)
@@ -87,7 +91,7 @@ export default function TransferAssetPopup({ onClose, assetId }) {
                                     className="flex flex-col gap-3 overflow-y-auto h-96"
                                     style={{ maxWidth: "100%" }}
                                 >
-                                    {users.map((user) => (
+                                    {availableUsers.map((user) => (
                                         <div 
                                         key={user.userId}
                                             className={`flex gap-3 mb-1 rounded-md p-4 cursor-pointer ${
