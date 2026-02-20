@@ -8,7 +8,7 @@
         <version>3.3.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.hrd</groupId>
+    <groupId>com.up</groupId>
     <artifactId>asset_holder_api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>asset_holder_api</name>

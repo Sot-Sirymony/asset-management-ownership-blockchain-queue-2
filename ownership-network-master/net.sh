@@ -141,25 +141,98 @@ channel_and_join() {
     export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/ca.crt
     export ORDERER_CA=/etc/hyperledger/fabric/crypto-config/ordererOrganizations/ownify.com/orderers/orderer.ownify.com/tls/ca.crt
 
-    peer channel create -o orderer.ownify.com:7050 \
+    already_exists() {
+      echo "$1" | grep -Eqi "already exists|exists with state \\[ACTIVE\\]"
+    }
+
+    join_peer_if_needed() {
+      local peer_addr="$1"
+      local tls_root="$2"
+      local join_output
+      local join_status
+
+      export CORE_PEER_ADDRESS="$peer_addr"
+      export CORE_PEER_TLS_ROOTCERT_FILE="$tls_root"
+
+      set +e
+      join_output="$(peer channel join -b /etc/hyperledger/fabric/channel-artifacts/channel-org.block 2>&1)"
+      join_status=$?
+      set -e
+
+      if [ "$join_status" -eq 0 ]; then
+        echo "$join_output"
+      elif already_exists "$join_output"; then
+        echo "Peer $peer_addr already joined channel-org; skipping."
+      else
+        echo "$join_output"
+        exit "$join_status"
+      fi
+    }
+
+    create_output=""
+    set +e
+    create_output="$(peer channel create -o orderer.ownify.com:7050 \
       -c channel-org \
       -f /etc/hyperledger/fabric/channel-artifacts/channel-org.tx \
       --outputBlock /etc/hyperledger/fabric/channel-artifacts/channel-org.block \
-      --tls --cafile "$ORDERER_CA"
+      --tls --cafile "$ORDERER_CA" 2>&1)"
+    create_status=$?
+    set -e
 
-    peer channel join -b /etc/hyperledger/fabric/channel-artifacts/channel-org.block
+    if [ "$create_status" -eq 0 ]; then
+      echo "$create_output"
+    elif already_exists "$create_output" || echo "$create_output" | grep -Fq "error applying config update to existing channel"; then
+      echo "Channel channel-org already exists; fetching latest block..."
+      set +e
+      fetch_output="$(peer channel fetch 0 /etc/hyperledger/fabric/channel-artifacts/channel-org.block \
+        -o orderer.ownify.com:7050 \
+        -c channel-org \
+        --tls --cafile "$ORDERER_CA" 2>&1)"
+      fetch_status=$?
+      set -e
 
-    export CORE_PEER_ADDRESS=peer1.org1.ownify.com:8051
-    export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/ca.crt
-    peer channel join -b /etc/hyperledger/fabric/channel-artifacts/channel-org.block
+      if [ "$fetch_status" -ne 0 ]; then
+        echo "$fetch_output"
+        if echo "$fetch_output" | grep -Fq "SERVICE_UNAVAILABLE"; then
+          echo "Channel exists but orderer cannot serve channel-org right now."
+          echo "Try a clean rebuild: ./net.sh reset && ./net.sh up"
+        fi
+        exit "$fetch_status"
+      fi
+      echo "$fetch_output"
+    else
+      echo "$create_output"
+      exit "$create_status"
+    fi
+
+    join_peer_if_needed "peer0.org1.ownify.com:7051" \
+      "/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/ca.crt"
+
+    join_peer_if_needed "peer1.org1.ownify.com:8051" \
+      "/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.ownify.com/peers/peer1.org1.ownify.com/tls/ca.crt"
 
     export CORE_PEER_ADDRESS=peer0.org1.ownify.com:7051
     export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.ownify.com/peers/peer0.org1.ownify.com/tls/ca.crt
-    peer channel update -o orderer.ownify.com:7050 \
+
+    set +e
+    anchor_output="$(peer channel update -o orderer.ownify.com:7050 \
       --ordererTLSHostnameOverride orderer.ownify.com \
       -c channel-org \
       -f /etc/hyperledger/fabric/channel-artifacts/Org1MSPanchors.tx \
-      --tls --cafile "$ORDERER_CA"
+      --tls --cafile "$ORDERER_CA" 2>&1)"
+    anchor_status=$?
+    set -e
+
+    if [ "$anchor_status" -eq 0 ]; then
+      echo "$anchor_output"
+    elif echo "$anchor_output" | grep -Fq "proposed update requires that key [Group]  /Channel/Application be at version 0"; then
+      echo "Anchor peer update already applied; skipping."
+    elif already_exists "$anchor_output"; then
+      echo "Anchor peer update already exists; skipping."
+    else
+      echo "$anchor_output"
+      exit "$anchor_status"
+    fi
   '
 }
 

@@ -1,4 +1,25 @@
 services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: ownership-postgres
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB:-asset_holder_db}
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "${POSTGRES_HOST_PORT:-55432}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./db-init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-asset_holder_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+    networks:
+      - test
+
   otel-collector:
     image: otel/opentelemetry-collector:0.96.0
     container_name: otel-collector
@@ -15,15 +36,15 @@ services:
       context: .
     container_name: ownership-api
     ports:
-      - "8081:8081"
+      - "${API_HOST_PORT:-18081}:8081"
     networks:
       - test
     environment:
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
       - OTEL_METRICS_EXPORTER=none
-      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL:-jdbc:postgresql://host.docker.internal:5432/asset_holder_db}
+      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL:-jdbc:postgresql://postgres:5432/asset_holder_db}
       - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME:-postgres}
-      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD:-Mony@1144}
+      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD:-postgres}
       - FABRIC_CA_ORG1_URL=${FABRIC_CA_ORG1_URL:-https://ca.org1.ownify.com:7054}
       - FABRIC_CA_ADMIN_ID=${FABRIC_CA_ADMIN_ID:-apiregistrar}
       - FABRIC_CA_ADMIN_PASSWORD=${FABRIC_CA_ADMIN_PASSWORD:-apiregistrarpw}
@@ -37,11 +58,15 @@ services:
       - COUCHDB_PASS=password
     depends_on:
       - otel-collector
+      - postgres
     volumes:
-      - "/Users/sotsirymony/Desktop/Block Chain Assignment/All In One Source/ownership-network-master/channel/crypto-config:/etc/hyperledger/fabric/crypto-config:ro"
-      - "/Users/sotsirymony/Desktop/Block Chain Assignment/All In One Source/ownership-network-master/connection-profile/connection.yaml:/app/connection.yaml:ro"
+      - "${NETWORK_CRYPTO_PATH:-../ownership-network-master/channel/crypto-config}:/etc/hyperledger/fabric/crypto-config:ro"
+      - "${NETWORK_CONNECTION_PROFILE:-../ownership-network-master/connection-profile/connection.yaml}:/app/connection.yaml:ro"
       - "./wallet:/app/wallet:rw"
 
 networks:
   test:
     external: true
+
+volumes:
+  postgres-data:

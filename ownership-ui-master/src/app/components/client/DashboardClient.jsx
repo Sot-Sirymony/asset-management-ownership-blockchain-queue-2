@@ -97,8 +97,17 @@ export default function DashboardClient(userId) {
     };
 
     const fetchDashboard = async () => {
-        const allCountDashboard = await getDashboardCount(token);
-        setDashboardCount(allCountDashboard)
+        try {
+            if (token) {
+                const allCountDashboard = await getDashboardCount(token);
+                setDashboardCount(allCountDashboard);
+            } else {
+                console.warn("No token found for dashboard");
+            }
+        } catch (error) {
+            console.error("Error fetching dashboard:", error);
+            setDashboardCount(null);
+        }
     }
 
     const fetchReport = async () => {
@@ -132,7 +141,7 @@ export default function DashboardClient(userId) {
                             <div className="flex flex-col ">
                                 <span className="uppercase text-[12px] font-medium text-[#626C70]">Total Users</span>
                                 <span className="block text-[20px] font-semibold">                        
-                                    {dashboardCount?.totalUser || "Loading..."}
+                                    {dashboardCount !== null && dashboardCount !== undefined ? dashboardCount.totalUser : "Loading..."}
                                 </span>
                             </div>
                             <div className="flex items-start gap-2">
@@ -148,7 +157,7 @@ export default function DashboardClient(userId) {
                             <div className="flex flex-col">
                                 <span className="uppercase text-[12px] font-medium text-[#626C70]">Total Asset Request</span>
                                 <span className="block text-[20px] font-semibold">
-                                    {dashboardCount?.totalAssetRequest || "Loading..."}
+                                    {dashboardCount !== null && dashboardCount !== undefined ? dashboardCount.totalAssetRequest : "Loading..."}
                                 </span>
                             </div>
                             <div className="flex items-start gap-2">
@@ -163,7 +172,7 @@ export default function DashboardClient(userId) {
                             <div className="flex flex-col">
                                 <span className="uppercase text-[12px] font-medium text-[#626C70]">Total Report Issue</span>
                                 <span className="block text-[20px] font-semibold">
-                                {dashboardCount?.totalReportIssue || "Loading..."}
+                                {dashboardCount !== null && dashboardCount !== undefined ? dashboardCount.totalReportIssue : "Loading..."}
                                 </span>
                             </div>
                             <div className="flex items-start gap-2">
@@ -178,7 +187,7 @@ export default function DashboardClient(userId) {
                             <div className="flex flex-col">
                                 <span className="uppercase text-[12px] font-medium text-[#626C70]">Total Department</span>
                                 <span className="block text-[20px] font-semibold">
-                                    {dashboardCount?.totalDepartment || "Loading..."}
+                                    {dashboardCount !== null && dashboardCount !== undefined ? dashboardCount.totalDepartment : "Loading..."}
                                 </span>
                             </div>
                             <div className="flex items-start gap-2">

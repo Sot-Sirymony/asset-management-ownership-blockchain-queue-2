@@ -15,6 +15,29 @@ CA_HOST="ca_orderer"
 CA_PORT="9054"
 CA_NAME="ca-orderer"
 
+first_match() {
+  local pattern="$1"
+  shopt -s nullglob
+  # shellcheck disable=SC2206
+  local files=( $pattern )
+  shopt -u nullglob
+  if [ "${#files[@]}" -eq 0 ]; then
+    return 1
+  fi
+  printf '%s\n' "${files[0]}"
+}
+
+copy_first_match() {
+  local pattern="$1"
+  local destination="$2"
+  local source
+  source="$(first_match "$pattern")" || {
+    echo "❌ No files found for pattern: $pattern"
+    return 1
+  }
+  cp "$source" "$destination"
+}
+
 enroll_admin() {
   echo
   echo "Enroll the CA admin"
@@ -61,6 +84,35 @@ NodeOUs:
 EOF
 }
 
+register_identity() {
+  local id_name="$1"
+  local id_secret="$2"
+  local id_type="$3"
+  local output
+  local status
+
+  set +e
+  output="$(fabric-ca-client register --caname "${CA_NAME}" \
+    --id.name "${id_name}" --id.secret "${id_secret}" \
+    --id.type "${id_type}" \
+    --tls.certfiles "${TLS_CERT}" 2>&1)"
+  status=$?
+  set -e
+
+  if [ "$status" -eq 0 ]; then
+    echo "${output}"
+    return 0
+  fi
+
+  if [[ "${output}" == *"already registered"* ]] || [[ "${output}" == *"Error Code: 74"* ]]; then
+    echo "Identity '${id_name}' already registered; skipping."
+    return 0
+  fi
+
+  echo "${output}"
+  return "$status"
+}
+
 register_orderers() {
   export FABRIC_CA_CLIENT_HOME="${CRYPTO_DIR}"
 
@@ -69,20 +121,14 @@ register_orderers() {
     echo "Register ${orderer}"
     echo "================"
 
-    fabric-ca-client register --caname "${CA_NAME}" \
-      --id.name "${orderer}" --id.secret "ordererpw" \
-      --id.type "orderer" \
-      --tls.certfiles "${TLS_CERT}"
+    register_identity "${orderer}" "ordererpw" "orderer"
   done
 
   echo
   echo "Register ordererAdmin"
   echo "====================="
 
-  fabric-ca-client register --caname "${CA_NAME}" \
-    --id.name "ordererAdmin" --id.secret "ordererAdminpw" \
-    --id.type "admin" \
-    --tls.certfiles "${TLS_CERT}"
+  register_identity "ordererAdmin" "ordererAdminpw" "admin"
 }
 
 generate_orderer_msp() {
@@ -92,6 +138,7 @@ generate_orderer_msp() {
     echo "=========================="
 
     mkdir -p "${CRYPTO_DIR}/orderers/${orderer}.ownify.com"
+    rm -rf "${CRYPTO_DIR}/orderers/${orderer}.ownify.com/msp"
 
     fabric-ca-client enroll -u "https://${orderer}:ordererpw@${CA_HOST}:${CA_PORT}" \
       --caname "${CA_NAME}" \
@@ -111,6 +158,8 @@ generate_orderer_tls_certificates() {
     echo
     echo "Generate the ${orderer}-TLS certificates"
     echo "======================================="
+
+    rm -rf "${CRYPTO_DIR}/orderers/${orderer}.ownify.com/tls"
 
     fabric-ca-client enroll -u "https://${orderer}:ordererpw@${CA_HOST}:${CA_PORT}" \
       --caname "${CA_NAME}" \
@@ -134,9 +183,9 @@ copy_and_rename_tls_files() {
 
     mkdir -p "${tls_dir}"
 
-    cp "${tls_dir}/tlscacerts/"* "${tls_dir}/ca.crt"
-    cp "${tls_dir}/signcerts/"* "${tls_dir}/server.crt"
-    cp "${tls_dir}/keystore/"* "${tls_dir}/server.key"
+    copy_first_match "${tls_dir}/tlscacerts/*" "${tls_dir}/ca.crt"
+    copy_first_match "${tls_dir}/signcerts/*" "${tls_dir}/server.crt"
+    copy_first_match "${tls_dir}/keystore/*" "${tls_dir}/server.key"
   done
 }
 
@@ -148,7 +197,7 @@ create_tls_ca_certificates_for_orderers() {
 
   for orderer in orderer orderer2 orderer3; do
     mkdir -p "${CRYPTO_DIR}/orderers/${orderer}.ownify.com/msp/tlscacerts"
-    cp "${CRYPTO_DIR}/orderers/${orderer}.ownify.com/tls/tlscacerts/"* \
+    copy_first_match "${CRYPTO_DIR}/orderers/${orderer}.ownify.com/tls/tlscacerts/*" \
       "${CRYPTO_DIR}/orderers/${orderer}.ownify.com/msp/tlscacerts/tlsca.ownify.com-cert.pem"
   done
 }
@@ -160,7 +209,7 @@ create_tls_ca_certificate_for_org_msp() {
   echo
 
   mkdir -p "${CRYPTO_DIR}/msp/tlscacerts"
-  cp "${CRYPTO_DIR}/orderers/orderer.ownify.com/tls/tlscacerts/"* \
+  copy_first_match "${CRYPTO_DIR}/orderers/orderer.ownify.com/tls/tlscacerts/*" \
     "${CRYPTO_DIR}/msp/tlscacerts/tlsca.ownify.com-cert.pem"
 }
 
@@ -171,7 +220,7 @@ create_tls_ca_certificate_for_org_tlsca() {
   echo
 
   mkdir -p "${CRYPTO_DIR}/tlsca"
-  cp "${CRYPTO_DIR}/orderers/orderer.ownify.com/tls/tlscacerts/"* \
+  copy_first_match "${CRYPTO_DIR}/orderers/orderer.ownify.com/tls/tlscacerts/*" \
     "${CRYPTO_DIR}/tlsca/tlsca.ownify.com-cert.pem"
 }
 
@@ -198,11 +247,11 @@ create_ca_certificate_for_org_ca() {
   mkdir -p "${CRYPTO_DIR}/ca"
 
   # Copy CA cert (ok to pick the single file in cacerts)
-  cp "${CRYPTO_DIR}/orderers/orderer.ownify.com/msp/cacerts/"* \
+  copy_first_match "${CRYPTO_DIR}/orderers/orderer.ownify.com/msp/cacerts/*" \
     "${CRYPTO_DIR}/ca/ca.ownify.com-cert.pem"
 
   # Copy ONE private key into priv_sk (pick the first file in keystore)
-  keyfile="$(ls -1 "${CRYPTO_DIR}/msp/keystore"/* | head -n 1)"
+  keyfile="$(first_match "${CRYPTO_DIR}/msp/keystore/*")"
   cp "${keyfile}" "${CRYPTO_DIR}/ca/priv_sk"
 }
 

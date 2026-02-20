@@ -30,14 +30,23 @@ export const getAllDepartment = async (token, page) => {
 
 export const getDashboardCount = async (token) => {
     const header = await reqHeader(token);
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/admin/dashboard`, {
-        headers: header,
-        cache: "no-store",
-        next: { tag: ["getDashboardCount"] },
-    });
-    console.log("shit", res)
-    const {payload}  = await res.json();
-    return payload;
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/admin/dashboard`, {
+            headers: header,
+            cache: "no-store",
+            next: { tag: ["getDashboardCount"] },
+        });
+        
+        if (!res.ok) {
+            throw new Error(`Error fetching dashboard: ${res.statusText}`);
+        }
+        
+        const {payload} = await res.json();
+        return payload;
+    } catch (error) {
+        console.error("Error in getDashboardCount:", error);
+        throw error;
+    }
 }
 
 

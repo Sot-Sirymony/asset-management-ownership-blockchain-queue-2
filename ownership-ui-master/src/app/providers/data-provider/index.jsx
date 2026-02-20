@@ -3,7 +3,7 @@
 import { stringify } from "query-string";
 import restDataProvider from "@refinedev/simple-rest";
 
-const API_URL = "http://localhost:8081/api/v1/admin";
+const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/admin`;
 
 // Helper function to generate filter query string for search
 const generateFilter = (filters) => {

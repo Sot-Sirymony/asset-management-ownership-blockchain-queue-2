@@ -2,6 +2,8 @@
 
 # Script to stop all running projects
 
+ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
 echo "🛑 Stopping All Projects..."
 echo "================================"
 
@@ -19,8 +21,15 @@ if lsof -Pi :8081 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
     echo "✅ API stopped"
 fi
 
+# Stop ownership-api compose services (API/PostgreSQL/OTel)
+if [ -f "$ROOT_DIR/ownership-api-master/docker-compose.yml" ]; then
+    echo "Stopping ownership-api docker services..."
+    docker compose -f "$ROOT_DIR/ownership-api-master/docker-compose.yml" stop api postgres otel-collector >/dev/null 2>&1 || true
+    echo "✅ ownership-api docker services stopped"
+fi
+
 # Stop Blockchain Network
-cd "$(dirname "$0")/ownership-network-master"
+cd "$ROOT_DIR/ownership-network-master"
 if [ -f "net.sh" ]; then
     echo "Stopping Blockchain Network..."
     ./net.sh down 2>/dev/null || true
