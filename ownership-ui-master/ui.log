@@ -331,3 +331,4 @@ Warning: [antd: Menu] `children` is deprecated. Please use `items` instead.
  [32m[1m✓[22m[39m Compiled /admin/report-issue in 381ms (4499 modules)
  GET /admin/seed-report-attachment [33m404[39m in 108ms
  GET /admin/seed-report-attachment [33m404[39m in 82ms
+ GET /admin/seed-report-attachment [33m404[39m in 101ms
