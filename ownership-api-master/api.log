@@ -192,3 +192,19 @@ java.lang.IllegalStateException: Wallet path does not exist: /app/wallet
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
 
+2026-02-20T17:31:51.295+07:00  INFO 80236 --- [asset_holder_api] [0.0-8081-exec-2] c.u.a.c.SwaggerAccessLoggingFilter       : Swagger accessed | method=GET | uri=/v3/api-docs | ip=0:0:0:0:0:0:0:1
+2026-02-20T17:58:27.224+07:00  WARN 80236 --- [asset_holder_api] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=48s720ms).
+2026-02-20T18:08:42.479+07:00  WARN 80236 --- [asset_holder_api] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m45s249ms).
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:12 h
+[INFO] Finished at: 2026-02-20T19:24:38+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.3.0:run (default-cli) on project asset_holder_api: Process terminated with exit code: 137 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

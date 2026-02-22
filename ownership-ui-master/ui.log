@@ -332,3 +332,16 @@ Warning: [antd: Menu] `children` is deprecated. Please use `items` instead.
  GET /admin/seed-report-attachment [33m404[39m in 108ms
  GET /admin/seed-report-attachment [33m404[39m in 82ms
  GET /admin/seed-report-attachment [33m404[39m in 101ms
+ GET /admin/seed-attachment [33m404[39m in 58ms
+ [37m[1m○[22m[39m Compiling /admin/asset/show/[id] ...
+ [32m[1m✓[22m[39m Compiled /admin/asset/edit/[id] in 1326ms (4181 modules)
+ [32m[1m✓[22m[39m Compiled in 2.5s (4990 modules)
+Recorders [90mundefined[39m
+ GET /admin/seed-attachment [33m404[39m in 272ms
+ GET /admin/seed-attachment [33m404[39m in 61ms
+ [32m[1m✓[22m[39m Compiled /api/auth/[...nextauth] in 389ms (4477 modules)
+ GET /api/auth/session [32m200[39m in 489ms
+ GET /api/auth/session [32m200[39m in 85ms
+ [37m[1m○[22m[39m Compiling / ...
+ [32m[1m✓[22m[39m Compiled / in 1837ms (4186 modules)
+ GET / [32m200[39m in 1998ms
